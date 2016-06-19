@@ -14,6 +14,10 @@ var introType;
 var timeStamp = (new Date()).getTime();
 var languageSystem = window.navigator.userLanguage || window.navigator.language;
 
+function imageDescription(){
+	
+}
+
 function detectChange(){
 	var slideName = document.getElementById('div_Slide')
 	slideName.addEventListener("DOMNodeInserted", detectChange, false); 
