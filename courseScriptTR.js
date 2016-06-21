@@ -4,6 +4,7 @@ $('head').append('<link rel="stylesheet" type="text/css" href="https://qamoodle.
 //$('head').append('<link href="//assets.gcs.thomsonreuters.com/fonts?variants=regular|bold" rel="stylesheet" type="text/css">');
 //$('head').append('<link rel="stylesheet" type="text/css" href="https://dominiosistemas.webaula.com.br/Cursos/assets/css/courseStyle.css">');
 
+console.log('Testing Raw Git')
 
 function turnImageDescription(){
 	/*var theParent = document.querySelector("#div_Slide");
