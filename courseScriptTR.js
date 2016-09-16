@@ -634,7 +634,7 @@ function introVideos(){
 introVideos();
 
 function fimIntro(){
-	$(messageFinalElementText).html('<br><br><br>Parabéns! Você concluiu o curso <br><br><strong>'+cpInfoProjectName+'</strong><br><br>Dúvidas? Envie um e-mail para <br>tutor.dominio@tr.com');
+	$(messageFinalElementText).html('<br><br><br>Parabéns! Você concluiu o curso <br><br><strong>'+cpInfoProjectName+'</strong><br><br>Dúvidas? Envie um e-mail para <br>'+cpInfoEmail+'');
 	cp.movie.am.mute(false);
 	cp.jumpToPreviousSlide();
 	logoCourse.className='topicoNormalLogoCourseFinal'
@@ -1585,11 +1585,11 @@ function fvm(){
 function finalMessage(){
 	if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
 	{
-		msgFinalTopico = 'Para continuar, selecione o <br>próximo tópico no campo acima.<br><br>Dúvidas? Envie um e-mail para<br>tutor.dominio@tr.com';
+		msgFinalTopico = 'Para continuar, selecione o <br>próximo tópico no campo acima.<br><br>Dúvidas? Envie um e-mail para<br>'+cpInfoEmail+'';
 	}
 	else
 	{
-		msgFinalTopico = 'Para continuar, na barra superior,<br>clique no botão Avançar.<br><br>Dúvidas? Envie um e-mail para<br>tutor.dominio@tr.com'
+		msgFinalTopico = 'Para continuar, na barra superior,<br>clique no botão Avançar.<br><br>Dúvidas? Envie um e-mail para<br>'+cpInfoEmail+''
 	}
 }
 
@@ -1948,7 +1948,8 @@ function createSidePainel(){
 			{
 				TweenLite.to(emailBtn,.3,{opacity:1});
 				//window.location = "mailto:tutor.dominio@thomsonreuters.com?subject="; 
-				window.top.location = "mailto:tutor.dominio@thomsonreuters.com?subject="; 
+				//window.top.location = "mailto:tutor.dominio@thomsonreuters.com?subject="; 
+				window.top.location = "mailto:"+cpInfoEmail+"?subject="; 
 			}
 		});
 	});
