@@ -16,7 +16,7 @@ Remember a few things, create 3 or white slides and change the slide duration fo
 
 Things I want to change in the future:
 
-• Create a interface to load the company logotype, course logotype and themes;
-• Remove all the links to Tweenlite and remove the library, stay only with CSS;
+• Create a interface to load the company logotype, course logotype and themes;<br>
+• Remove all the links to Tweenlite and remove the library, stay only with CSS;<br>
 • The themes will include a set of different animations for the elements, elements like lists will have a custom bullet, etc.
 
