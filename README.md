@@ -1,4 +1,4 @@
-# CP Course Automation
+# Captivate Course Automation
 
 This is a WIP, so that you can test the script, create a On Enter "Execute Javascript" in the beggining of the course, and paste:
 
