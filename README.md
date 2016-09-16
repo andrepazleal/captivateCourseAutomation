@@ -6,6 +6,6 @@ This is a WIP, so that you can test the script, create a On Enter "Execute Javas
 
 Remember a few things, create 3 or white slides and change the slide duration for more than the standard 3sec, why:
 
-• First slide it loads the script and the video intro;
-• Second slide, after pressing the arrow, loads the UX;
+• First slide it loads the script and the video intro;<br>
+• Second slide, after pressing the arrow, loads the UX;<br>
 • Third slide or last slide, display the end message of the topic.
