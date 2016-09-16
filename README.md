@@ -4,7 +4,6 @@ This is a WIP, so that you can test the script, create a On Enter "Execute Javas
 
 $('head').append('<script src="https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/courseScriptTR.js"</script>');
 
-
 Remember a few things, create 3 or white slides and change the slide duration for more than the standard 3sec, why:
 
 • First slide it loads the script and the video intro;
