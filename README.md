@@ -1,7 +1,9 @@
 CP Course Automation
 
-To test the script, execute this JS in the beggining of the course:
-$('head').append('<script src="https://rawgit.com/andrepazleal/Captivate-Course-Automation/Teste/courseScriptTR.js"</script>');
+This is a WIP, so that you can test the script, create a On Enter "Execute Javascript" in the beggining of the course, and paste:
+
+$('head').append('<script src="https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/courseScriptTR.js"</script>');
+
 
 Remember a few things, create 3 or white slides and change the slide duration for more than the standard 3sec, why:
 
