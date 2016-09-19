@@ -583,7 +583,7 @@ function introVideos(){
 			videoIntroElement.setAttribute("width", "100%");
 			videoIntroElement.setAttribute("height", "100%");
 			videoIntroElement.setAttribute("type", "video/mp4");
-			videoIntroElement.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/videos/"+introType);	
+			videoIntroElement.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/videos/"+introType);
 			videoIntroElement.load();
 			var videoIntroElementIconLoading = document.createElement("div");
 			document.getElementById("div_Slide").appendChild(videoIntroElementIconLoading)
