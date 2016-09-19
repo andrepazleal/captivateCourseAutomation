@@ -1,6 +1,6 @@
 /*PRODUCTION SCRIPT FOR COURSES*/
-$('head').append('<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">');
-$('head').append('<link rel="stylesheet" type="text/css" href="//assets/css/courseStyle.css">');
+$('head').append('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>');
+$('head').append('<script src="https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/courseScriptTR.js"</script>');
 
 cp.movie.am.pauseCurrentSlideAudioForInteractiveClick();
 
