@@ -4,7 +4,7 @@ This is a WIPs, the purpose of this script is to automate the creation of a cour
 
     $('head').append('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>');
 
-    $('head').append('<script src="https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/courseScriptTR.js"</script>');
+    $('head').append('<script src="https://rawgit.com/andrepazleal/captivateCourseAutomation/Teste/courseScriptTR.js"</script>');
 
 
 Remember a few things, create 3 or more white slides and change the slide duration for more than the standard 3sec, why:
