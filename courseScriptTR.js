@@ -583,7 +583,7 @@ function introVideos(){
 			videoIntroElement.setAttribute("width", "100%");
 			videoIntroElement.setAttribute("height", "100%");
 			videoIntroElement.setAttribute("type", "video/mp4");
-			videoIntroElement.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/videos/"+introType);	videoIntroElement.load();
+			videoIntroElement.setAttribute("src", "https://www.dropbox.com/sh/3695runo4lzonp3/AAC9FKrd_sN9hWQ-Re4ZCkH2a?dl=0/"+introType);	videoIntroElement.load();
 			var videoIntroElementIconLoading = document.createElement("div");
 			document.getElementById("div_Slide").appendChild(videoIntroElementIconLoading)
 			videoIntroElementIconLoading.setAttribute("id", "videoIntroElementIconLoading");
