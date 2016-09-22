@@ -5,6 +5,8 @@ $('head').append('<link rel="stylesheet" type="text/css" href="https://rawgit.co
 
 cp.movie.am.pauseCurrentSlideAudioForInteractiveClick();
 
+console.log(document.URL)
+
 screenSize = document.getElementById("div_Slide")
 var screenSizeWidth = parseInt(screenSize.style.width)
 var screenSizeHeight = parseInt(screenSize.style.height)
