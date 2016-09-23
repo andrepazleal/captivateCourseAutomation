@@ -226,12 +226,12 @@ body {
 }
 
 .talkingOld{
-  background: url('../images/talking.png') left center;
+  background: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/talking.png') left center;
   -webkit-animation: talking 2.1s steps(60) infinite;
 }
 
 .talking{
-  background: url('../images/talking.png') left center;
+  background: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/talking.png') left center;
   -webkit-animation: talking 2.1s steps(60) infinite, talkingWalkLeft 2.3s steps(60) 3s 0.5, talkingWalkRight 2.3s steps(60) 12s 0.5;
   animation: talking 2.1s steps(60) infinite, talkingWalkLeft 2.3s steps(60) 3s 0.5, talkingWalkRight 2.3s steps(60) 12s 0.5;
 }
@@ -797,7 +797,7 @@ transform:translate3d(35em,1em,0)
     width:35vw!important;
   }
   #logoCompanyContainer{
-  position: absolute; height: 15vh !important; width: 100vw !important; top: 85vh !important; opacity: 1; display: block; -webkit-filter: brightness(2.3) grayscale(1); background-image: url(../imagesTR/logoThomson.png) !important; background-size: 10vh !important; background-position: 42.5vw 0 !important;pointer-events:none;webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;
+  position: absolute; height: 15vh !important; width: 100vw !important; top: 85vh !important; opacity: 1; display: block; -webkit-filter: brightness(2.3) grayscale(1); background-image: url(https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoThomson.png) !important; background-size: 10vh !important; background-position: 42.5vw 0 !important;pointer-events:none;webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;
   }
   #warningElementText{
     width:100vw!important;height:100vh!important;
