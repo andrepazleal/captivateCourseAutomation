@@ -387,7 +387,7 @@ li{
 
 li:before {
     content: '';
-    background: url("https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/sprite.png") no-repeat left top;
+    background: url("https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/iconList.png") no-repeat left top;
     height: 20px;
     width: 20px;
     position: absolute;
