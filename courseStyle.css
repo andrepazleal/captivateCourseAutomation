@@ -246,7 +246,7 @@ body {
 }
 
 .idle {
-  background: url('../images/idle.png') left center;
+  background: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/images/idle.png') left center;
   -webkit-animation: idle 2.5s steps(60) infinite, idlePoint 2.5s steps(60) 5s 0.5;
   animation: idle 2.5s steps(60) infinite, idlePoint 2.5s steps(60) 5s 0.5;
 }
@@ -387,7 +387,7 @@ li{
 
 li:before {
     content: '';
-    background: url("https://moodle.dominiosistemas.com.br/assets/imagesTR/sprite.png") no-repeat left top;
+    background: url("https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/sprite.png") no-repeat left top;
     height: 20px;
     width: 20px;
     position: absolute;
