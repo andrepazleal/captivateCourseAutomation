@@ -5,8 +5,6 @@ $('head').append('<link rel="stylesheet" type="text/css" href="https://rawgit.co
 
 cp.movie.am.pauseCurrentSlideAudioForInteractiveClick();
 
-console.log(document.URL)
-
 screenSize = document.getElementById("div_Slide")
 var screenSizeWidth = parseInt(screenSize.style.width)
 var screenSizeHeight = parseInt(screenSize.style.height)
@@ -147,19 +145,19 @@ function companyName(){
 	companyName = (cpInfoCompany.split(' '));
 	if(companyName[0] == 'Thomson')
 	{
-		companyName = 'logoThomson.png';
+		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoThomson.png';
 	}
 	if(companyName[0] == 'Domínio')
 	{
-		companyName = 'logoDominio.png';
+		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoDominio.png';
 	}
 	if(companyName[0] == 'Novajus')
 	{
-		companyName = 'logoNovaprolink.png';
+		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoNovaprolink.png';
 	}
 	if(companyName[0] == 'Mastersaf')
 	{
-		companyName = 'logoMastersaf.svg';
+		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoMastersaf.svg';
 	}
 }
 
@@ -402,7 +400,7 @@ function createElements(){
 	//$(logoCompanyContainer).css('width','100%');
 	//$(logoCompanyContainer).css('top','88%');
 	//$(logoCompanyContainer).css('opacity',0);
-	$(logoCompanyContainer).css('background-image','url(https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/tree/Teste/imagesTR/'+companyName+')');
+	$(logoCompanyContainer).css('background-image','url('+companyName+')');
 	//$(logoCompanyContainer).css('background-repeat','no-repeat');
 	//$(logoCompanyContainer).css('background-position','50% 0');
 	//$(logoCompanyContainer).css('background-size','35%');
