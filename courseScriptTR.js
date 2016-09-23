@@ -599,21 +599,25 @@ function introVideos(){
 			$(videoIntroElementIconLoading).css("font-size",24);
 			$(videoIntroElementIconLoading).css("color","#bebebe");
 			$(videoIntroElementIconLoading).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-cog fa-spin fa-3x"></i></p>');
-			TweenLite.to(videoIntroElementIconLoading, .5, {opacity:1,scale:.8});
+			//TweenLite.to(videoIntroElementIconLoading, .5, {opacity:1,scale:.8});
+			videoIntroElementIconLoading.className='fadeIn';
 			$(videoIntroElementIconLoading).bind(changeClick,function(e){
-				TweenLite.to(videoIntroElementIconLoading, 1, {opacity:0, scale:1.5,onComplete:function(){
-				$(videoIntroElementIconLoading).css("display",'none');	
-				}});
+				videoIntroElementIconLoading.className='fadeOut'
+				//TweenLite.to(videoIntroElementIconLoading, 1, {opacity:0, scale:1.5,onComplete:function(){
+				//$(videoIntroElementIconLoading).css("display",'none');	
+				//}});
 				videoIntroElement.play();
 			});
 			videoIntroElement.addEventListener("progress",function()
 			{
 				$(videoIntroElementIconLoading).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-play-circle-o fa-3x"></i></p>');
-					TweenLite.to(videoIntroElementIconLoading, .5, {opacity:0,onComplete:function(){
-					$(videoIntroElementIconLoading).css("visibility",'hidden');	
-				}});
+					videoIntroElementIconLoading.className="fadeOut"
+					//TweenLite.to(videoIntroElementIconLoading, .5, {opacity:0,onComplete:function(){
+					//$(videoIntroElementIconLoading).css("visibility",'hidden');	
+					//}});
 				$(videoIntroElementIconLoading).css("visibility",'visible');
-				TweenLite.to(videoIntroElementIconLoading, .3, {opacity:1,'color':'black',scale:1});
+				videoIntroElementIconLoading.className="fadeIn"
+				//TweenLite.to(videoIntroElementIconLoading, .3, {opacity:1,'color':'black',scale:1});
 			});
 			videoIntroElement.addEventListener("playing", function () 
 			{
