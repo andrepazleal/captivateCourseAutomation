@@ -570,11 +570,11 @@ function introVideos(){
 	else{
 		if(cpInfoCurrentSlideLabel == "Seja Bem Vindo!")
 		{
-			introType = 'intro.mp4';
+			introType = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/videos/intro.mp4';
 		}
 		else if(cpInfoCurrentSlideLabel != "Seja Bem Vindo")
 		{
-			introType = 'introLmsOut.mp4';	
+			introType = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/videos/introLmsOut.mp4';	
 		}
 		if(cpInfoCurrentSlideLabel == "Seja Bem Vindo!" || cpInfoCurrentSlideLabel == "Faça Você Mesmo!" || cpInfoCurrentSlideLabel != "Fim!"){	
 			var videoIntroElement = document.createElement("video")
@@ -585,7 +585,7 @@ function introVideos(){
 			videoIntroElement.setAttribute("width", "100%");
 			videoIntroElement.setAttribute("height", "100%");
 			videoIntroElement.setAttribute("type", "video/mp4");
-			videoIntroElement.setAttribute("src", "https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/tree/Teste/videos/"+introType);
+			videoIntroElement.setAttribute("src", introType);
 			videoIntroElement.load();
 			var videoIntroElementIconLoading = document.createElement("div");
 			document.getElementById("div_Slide").appendChild(videoIntroElementIconLoading)
