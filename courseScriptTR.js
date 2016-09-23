@@ -402,7 +402,7 @@ function createElements(){
 	//$(logoCompanyContainer).css('width','100%');
 	//$(logoCompanyContainer).css('top','88%');
 	//$(logoCompanyContainer).css('opacity',0);
-	$(logoCompanyContainer).css('background-image','url(https://moodle.dominiosistemas.com.br/assets/imagesTR/'+companyName+')');
+	$(logoCompanyContainer).css('background-image','url(https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/tree/Teste/imagesTR/'+companyName+')');
 	//$(logoCompanyContainer).css('background-repeat','no-repeat');
 	//$(logoCompanyContainer).css('background-position','50% 0');
 	//$(logoCompanyContainer).css('background-size','35%');
@@ -411,7 +411,7 @@ function createElements(){
 	logoCourse.setAttribute("id", "logoCourse");
 	document.getElementById("project_main").appendChild(logoCourse);
 	courseName();
-	logoCourse.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/logos/"+courseName);
+	logoCourse.setAttribute("src", "https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/tree/Teste/logos/"+courseName);
 	
 	//logoCourse.setAttribute("height", "59.5%");
 	//logoCourse.setAttribute("width", "45%");
@@ -585,7 +585,7 @@ function introVideos(){
 			videoIntroElement.setAttribute("width", "100%");
 			videoIntroElement.setAttribute("height", "100%");
 			videoIntroElement.setAttribute("type", "video/mp4");
-			videoIntroElement.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/videos/"+introType);
+			videoIntroElement.setAttribute("src", "https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/tree/Teste/videos/"+introType);
 			videoIntroElement.load();
 			var videoIntroElementIconLoading = document.createElement("div");
 			document.getElementById("div_Slide").appendChild(videoIntroElementIconLoading)
@@ -1170,7 +1170,7 @@ function fvm(){
 		var pointerIcon = document.createElement("img");
 		pointerIcon.setAttribute("id", "pointerIcon");
 		document.getElementById("project_main").appendChild(pointerIcon);
-		pointerIcon.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/imagesTR/pointer.png");
+		pointerIcon.setAttribute("src", "https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/pointer.png");
 		pointerIcon.setAttribute("style", "position:absolute; z-index:100");
 		$(pointerIcon).css('opacity',0);
 		$(pointerIcon).css("border-radius","25px");
@@ -1180,7 +1180,7 @@ function fvm(){
 		var dicaBtn = document.createElement("img");
 		dicaBtn.setAttribute("id", "dicaBtn");
 		document.getElementById("project_main").appendChild(dicaBtn);
-		dicaBtn.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/imagesTR/introducaoIcon.png");
+		dicaBtn.setAttribute("src", "https://github.com/andrepazleal/captivateCourseAutomation/blob/Teste/imagesTR/introducaoIcon.png");
 		dicaBtn.setAttribute("width",50)
 		dicaBtn.setAttribute("height",50)
 		dicaBtn.setAttribute("style", "position:absolute; z-index:100");
@@ -1604,7 +1604,7 @@ function sejaBemVindo(){
 	var Image_welcomeIcon = document.createElement("img");
 	Image_welcomeIcon.setAttribute("id", "Image_welcomeIcon");
 	document.getElementById("project_main").appendChild(Image_welcomeIcon);
-	Image_welcomeIcon.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/imagesTR/introducaoIcon.png");
+	Image_welcomeIcon.setAttribute("src", "https://github.com/andrepazleal/captivateCourseAutomation/blob/Teste/imagesTR/introducaoIcon.png");
 		Image_welcomeIcon.className='welcomeLogoIcon fadeIn'
 	createSidePainel();
 	createPainel();
@@ -2708,122 +2708,6 @@ function positionPainel(){
 	    	}
 		}
 	}
-
-
-
-/*function topicLanguage(){
-	try
-	{
-		slideNumber = cp.movie.playbackController.currentSlide;
-		textoAcessibilidadePortugueseTitle = cp.model.data[slideNumber].accstr.replace('Painel Lateral!','').replace('','<h1 class="painelTitleSlide">').replace('<span>','</h1>').split('<title>')[0]
-		textoAcessibilidadePortuguese = cp.model.data[slideNumber].accstr.split('<title>')[1]
-		if(textoAcessibilidadePortuguese == "Painel Lateral! " || textoAcessibilidadePortuguese == "Character! ")
-		{
-			$(painelTextoSlide).html('');	
-		}
-		//ENGLISH
-		else if(english != true)
-		{
-			if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
-			{
-				msgFinalTopico = 'To continue, select the<br>next topic in the field above.<br><br>Questions? Send an email to <br> tutor.dominio@tr.com';
-			}
-			else
-			{
-				msgFinalTopico = 'To continue on the top bar,<br>click the Next Button. <br><br>Questions? Send an email to <br> tutor.dominio@tr.com'
-			}
-			textoAcessibilidadeEnglish = cp.model.data[slideNumber].accstr.split('  ')[1]
-			textoAcessibilidadeEnglishTitle= textoAcessibilidadeEnglish.split('<title>')[0];
-			textoAcessibilidadeEnglishText = textoAcessibilidadeEnglish.split('<title>')[1];
-			$('#soundBtn p').html('<p><i class="fa fa-volume-up fa-3x"></i><br>SOUND</p>');
-			$('#painelBtn p').html('<p><i class="fa fa-list-alt fa-3x"></i><br>PANEL</p>');
-			$(infoTopicoText).html("SLIDE "+cpInfoCurrentSlide+" OF "+cpInfoSlideCount);
-			if(textoAcessibilidadeEnglish != undefined)
-			{
-				$(painelTextoSlide).html(textoAcessibilidadeEnglish);	
-				if(cpInfoCurrentSlideLabel == "Painel Lateral!" || cpInfoCurrentSlideLabel == "Character!")				
-				{
-					$(painelTextoSlide).html(textoAcessibilidadeEnglishText);	
-				}
-				if(textoAcessibilidadeEnglish == '' || textoAcessibilidadeEnglish == null)
-				{
-					$(painelTextoSlide).html('Not Available in this Course.');
-				}
-			}
-			else
-			{
-				$(painelTextoSlide).html('Not Available in this Course.');
-			}
-		}
-		//SPANISH
-		else if(spanish != true)
-		{
-			if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
-			{
-				msgFinalTopico = 'Para continuar, seleccione la <br> siguiente tema en el campo de arriba.<br><br>¿Preguntas? Enviar un correo electrónico a <br> tutor.dominio@tr.com';
-			}
-			else
-			{
-				msgFinalTopico = 'Para continuar en la barra superior,<br>haga clic en el botón Siguiente.<br><br>¿Preguntas? Enviar un correo electrónico a <br> tutor.dominio@tr.com'
-			}
-			$('#soundBtn p').html('<p><i class="fa fa-volume-up fa-3x"></i><br>SONIDO</p>');
-			$('#painelBtn p').html('<p><i class="fa fa-list-alt fa-3x"></i><br>PANEL</p>');
-			$(infoTopicoText).html("SLIDE "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
-			var checkSpanishNotes = cp.model.data[slideNumber].accstr.split('  ')[2] != null;
-			if(checkSpanishNotes == true)
-			{
-				var textoAcessibilidadeSpanish = cp.model.data[slideNumber].accstr.split('  ')[2];
-				var textoAcessibilidadeSpanishTitle= textoAcessibilidadeSpanish.split('<title>')[0];
-				var textoAcessibilidadeSpanishText = textoAcessibilidadeSpanish.split('<title>')[1];
-				
-				$(painelTextoSlide).html(textoAcessibilidadeSpanish);	
-				if(cpInfoCurrentSlideLabel == "Painel Lateral!")				
-				{
-					$(painelTextoSlide).html(textoAcessibilidadeSpanishText);	
-				}
-			}
-			else
-			{
-				$(painelTextoSlide).html('No está disponible en este curso.');
-			}
-		}
-		//PORTUGUESE
-		else
-		{
-			if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
-			{
-				msgFinalTopico = 'Para continuar, selecione o <br>próximo tópico no campo acima.<br><br>Dúvidas? Envie um e-mail para<br>tutor.dominio@tr.com';
-			}
-			else
-			{
-				msgFinalTopico = 'Para continuar, na barra superior,<br>clique no botão Avançar.<br><br>Dúvidas? Envie um e-mail para<br>tutor.dominio@tr.com'
-			}
-			$('#soundBtn p').html('<p><i class="fa fa-volume-up fa-3x"></i><br>SOM</p>');
-			$('#painelBtn p').html('<p><i class="fa fa-list-alt fa-3x"></i><br>PAINEL</p>');
-			$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
-			if(cpInfoCurrentSlideLabel == "Painel Lateral!" || cpInfoCurrentSlideLabel == "Character!" )
-			{
-				$(painelTextoSlide).html(textoAcessibilidadePortugueseTitle).append(textoAcessibilidadePortuguese);
-			}
-			else
-			{
-				console.log()
-				if(document.documentElement.clientWidth < 700){
-					painelTextoSlide.className="painelNormalMobileTextoSlide";
-					painel.className="painelNormalMobile";
-					messageFailureToPanel();
-				}
-				else{
-					$(painelTextoSlide).html(cp.model.data[slideNumber].accstr);
-				}
-				
-			}
-			}
-		}
-		catch(e)
-		{
-	}
-}*/
 
 function topicLanguage(){
 	if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
