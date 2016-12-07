@@ -1,16 +1,25 @@
-/*PRODUCTION SCRIPT FOR COURSES*/
-
+/*TEST SCRIPT FOR COURSES*/
 $('head').append('<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">');
-$('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/courseStyle.css">');
+$('head').append('<link rel="stylesheet" type="text/css" href="https://moodle.dominiosistemas.com.br/assets/css/courseStyle.css">');
 
 cp.movie.am.pauseCurrentSlideAudioForInteractiveClick();
+
+var observer = new MutationObserver(function(mutations, observer) {
+    //setTimeout(updateSlideElements, 100);
+    updateSlideElements();
+});
+observer.observe(document.getElementById('div_Slide'), {
+    attributes: true,
+    childList:true,
+    attributeFilter:['id']
+});
 
 screenSize = document.getElementById("div_Slide")
 var screenSizeWidth = parseInt(screenSize.style.width)
 var screenSizeHeight = parseInt(screenSize.style.height)
 var pageUrl = window.location.hostname;
-var courseOptionsEn = 'To access the course options,<br>access the icon on the bottom right corner.'
-var courseOptionsPt = 'Para acesso as opções do curso,<br>toque no canto inferior direito.'
+var courseOptionsEn = '<h5>To access the course options,<br>access the icon on the bottom right corner.'
+var courseOptionsPt = '<h5>Para acesso as opções do curso,<br>toque no canto inferior direito.'
 var introType;
 var timeStamp = (new Date()).getTime();
 var languageSystem = window.navigator.userLanguage || window.navigator.language;
@@ -20,7 +29,7 @@ function showPainelContent(){
 	if(isIOs == true){
 		try{
 			slideNumber = cp.movie.playbackController.currentSlide;
-		painelAccstr = cp.model.data[slideNumber].accstr.replace('Painel Lateral!','').replace('','<h1 class="painelTitleSlide">').replace('<span>','</h1>').split('<title>')[0]
+		painelAccstr = cp.model.data[slideNumber].accstr.replace('Painel Lateral!','').replace('','<h1>').replace('<span>','</h1>').split('<title>')[0]
 		painelAccstr2 = cp.model.data[slideNumber].accstr.split('<title>')[1];	
 		painelAccstrNormal = cp.model.data[slideNumber].accstr.split('<title>')[0];	
 		}
@@ -28,60 +37,74 @@ function showPainelContent(){
 	}
 	else{
 		try{
-		var painelAccstr = document.querySelectorAll('div[id*="Slide"] + div[id*="accStr"]')[0].children[0].innerHTML.replace('Painel Lateral!','<h1 class="painelTitleSlide">').replace('<title>','</h1>').replace('</title>','').split('</h1>')[0];
+		var painelAccstr = document.querySelectorAll('div[id*="Slide"] + div[id*="accStr"]')[0].children[0].innerHTML.replace('Painel Lateral!','<h1>').replace('<title>','</h1>').replace('</title>','').split('</h1>')[0];
 		var painelAccstr2 = document.querySelectorAll('div[id*="Slide"] + div[id*="accStr"]')[0].children[0].children[0].textContent;		
 		}
 		catch(e){}
 		var painelAccstrNormal = document.querySelectorAll('div[id*="Slide"] + div[id*="accStr"]')[0].children[0].innerHTML;
 	}
-	
-	var mobileCanvasImage = document.querySelectorAll("div[id*='re-mobile']");
-	var mobileDivImages = document.querySelectorAll("div[id*=mobile][class=cp-frameset]");
-	var motionText = document.querySelectorAll("div[id*=motion][class=cp-frameset]");
-
 	if(cpInfoCurrentSlideLabel == "Painel Lateral!"){
-		painelTextoSlide.innerHTML=painelAccstr;
-		painelTextoSlide.innerHTML+=painelAccstr2;
+		//painel.appendChild(painelAccstr)
+		painelTitleSlide.innerHTML=painelAccstr;
+		painelTitleSlide.className="painelTitleSlide"
+		painelTextoSlide.innerHTML=painelAccstr2;
+		
+		//console.log(painel.children);
 		if(painelAccstr2 == undefined){
 			painelTextoSlide.innerHTML='';
 		}
 	}
 	else{
-		painelTextoSlide.innerHTML=painelAccstrNormal;
+		try{
+			painelTitleSlide.innerHTML='';
+            painelTextoSlide.innerHTML=painelAccstrNormal;
+        }catch(e){}
 	}
+    
+   var mobileCanvasImage = document.querySelectorAll("div[id*='re-mobile']");
+	var mobileDivImages = document.querySelectorAll("div[id*=mobile][class=cp-frameset]");
+    
 	for(i=0; i < mobileCanvasImage.length; i++){
+        clickMeIcon = document.createElement("span")
+        mobileCanvasImage[i].appendChild(clickMeIcon);
+        clickMeIcon.className="blink";  
 		mobileCanvasImage[i].addEventListener('click', mostraMensagemImagem, false);
 	}
 	for(i=0; i < mobileDivImages.length; i++){
 		mobileDivImages[i].style.pointerEvents="none"
 	}
-	if(document.documentElement.clientWidth < 420){
-		for(i=0; i < mobileCanvasImage.length; i++){
+    
+    var motionTextCanvas = document.querySelectorAll("div[id*=re-motion]");
+    var motionText = document.querySelectorAll('div[id*=motion][class=cp-accessibility]');
+    
+    for(i=0; i < motionText.length; i++){
+        //motionTextCanvas[i].appendChild(motionText[i]);
+        motionText[i].className="motion";
+        //var test = motionTextCanvas[i].childNodes[1];
+        //motionTextCanvas[i].childNodes[1].className="motion";
+    }
+    if(document.documentElement.clientWidth < 420){
+        for(i=0; i < mobileCanvasImage.length; i++){
 			painelTextoSlide.appendChild(mobileCanvasImage[i])//works
 		}
-	}
-	for(i=0; i < motionText.length; i++){
-		if(document.documentElement.clientWidth < 420){
-			painelTextoSlide.innerHTML=motionText[0].innerHTML;//works
-			motionText[i].firstChild.className='motion';	
-			motionText[i].style.visibility='hidden'
-		}
-		else
-		{
-			motionText[i].firstChild.className='motion';	
-		}
+        for(i=0; i < motionTextCanvas.length; i++){
+            motionTextCanvas[i].appendChild(motionText[i])
+            painelTextoSlide.appendChild(motionTextCanvas[i]);
+            motionTextCanvas[i].className="motion";
+         }
+        
 	}
 }	
 
 function mostraMensagemImagem(event){
+    this.children[1].className="blurOut";
+    changeColors();
 	this.children[0].className="closeTurnImage";
 	var isIOs = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i))) != null;
 	if(isIOs == true){
 		this.children[0].className="closeTurnImage";
 		var imageDescriptionMoveBefore = this.firstChild.id.replace('re-','').replace('c','');
-		//console.log(imageDescriptionMoveBefore)
 		var imageDescriptionMove =  document.querySelectorAll('div[id^='+imageDescriptionMoveBefore+']')[0].attributes[4].nodeValue;
-		//console.log(imageDescriptionMove)
 		var newas = document.createElement("p")
 		newas.className="openTurnImage"
 		newas.innerHTML=imageDescriptionMove;
@@ -97,17 +120,6 @@ function mostraMensagemImagem(event){
    	try{
    }catch(e){}
    	event.stopPropagation();
-}
-
-function detectChange(){
-	var slideName = document.getElementById('div_Slide')
-	slideName.addEventListener("DOMNodeInserted", detectChange, false); 
-	idOriginal = this.id;
-	if(idOriginal != this.id){
-	}
-	else{
-		setTimeout(updateSlideElements, 100);
-	}
 }
 
 function isIOs(){
@@ -127,7 +139,7 @@ function scriptVersion(){
 
 	$(scriptVersion).html('<div style="color:white; margin-top:-9vh;margin-left:-12vw;-webkit-transform:rotate(45deg);vertical-align:top;text-align:center;pointer-events:none;"><i class="fa fa-star"></i></div>');
 }
-//scriptVersion();
+scriptVersion();
 
 function carregandoTela(){
 	var carregandoTela = document.getElementById("loading");	
@@ -141,23 +153,30 @@ function carregandoTela(){
 	}catch(e){}
 }
 
+
+
+
 function companyName(){
 	companyName = (cpInfoCompany.split(' '));
 	if(companyName[0] == 'Thomson')
 	{
-		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoThomson.png';
+		companyName = 'logoThomson.png';
 	}
 	if(companyName[0] == 'Domínio')
 	{
-		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoDominio.png';
+		companyName = 'logoDominio.png';
 	}
 	if(companyName[0] == 'Novajus')
 	{
-		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoNovaprolink.png';
+		companyName = 'logoNovaprolink.png';
 	}
 	if(companyName[0] == 'Mastersaf')
 	{
-		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoMastersaf.svg';
+		companyName = 'logoMastersaf.svg';
+	}
+	if(companyName[0] == 'Fiscosoft')
+	{
+		companyName = 'fiscosoftLogo.png';
 	}
 }
 
@@ -384,7 +403,14 @@ function courseName(){
 	{	
 		courseName = 'contabilPlus10.png';
 	}
-
+    if(courseName[0] == 'Conceitos' && courseName[3] == 'Reinf')
+	{	
+		courseName = 'efdReinf.png';
+	}
+	if(courseName[0] == 'Tutorial' && courseName[2] == 'LMS')
+	{	
+		courseName = 'tutorialLms.png';
+	}
 }
 
 function createElements(){
@@ -400,7 +426,7 @@ function createElements(){
 	//$(logoCompanyContainer).css('width','100%');
 	//$(logoCompanyContainer).css('top','88%');
 	//$(logoCompanyContainer).css('opacity',0);
-	$(logoCompanyContainer).css('background-image','url('+companyName+')');
+	$(logoCompanyContainer).css('background-image','url(https://moodle.dominiosistemas.com.br/assets/imagesTR/'+companyName+')');
 	//$(logoCompanyContainer).css('background-repeat','no-repeat');
 	//$(logoCompanyContainer).css('background-position','50% 0');
 	//$(logoCompanyContainer).css('background-size','35%');
@@ -409,7 +435,7 @@ function createElements(){
 	logoCourse.setAttribute("id", "logoCourse");
 	document.getElementById("project_main").appendChild(logoCourse);
 	courseName();
-	logoCourse.setAttribute("src", "https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/tree/Teste/logos/"+courseName);
+	logoCourse.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/logos/"+courseName);
 	
 	//logoCourse.setAttribute("height", "59.5%");
 	//logoCourse.setAttribute("width", "45%");
@@ -568,11 +594,11 @@ function introVideos(){
 	else{
 		if(cpInfoCurrentSlideLabel == "Seja Bem Vindo!")
 		{
-			introType = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/videos/intro.mp4';
+			introType = 'intro.mp4';
 		}
 		else if(cpInfoCurrentSlideLabel != "Seja Bem Vindo")
 		{
-			introType = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/videos/introLmsOut.mp4';	
+			introType = 'introLmsOut.mp4';	
 		}
 		if(cpInfoCurrentSlideLabel == "Seja Bem Vindo!" || cpInfoCurrentSlideLabel == "Faça Você Mesmo!" || cpInfoCurrentSlideLabel != "Fim!"){	
 			var videoIntroElement = document.createElement("video")
@@ -583,8 +609,7 @@ function introVideos(){
 			videoIntroElement.setAttribute("width", "100%");
 			videoIntroElement.setAttribute("height", "100%");
 			videoIntroElement.setAttribute("type", "video/mp4");
-			videoIntroElement.setAttribute("src", introType);
-			videoIntroElement.load();
+			videoIntroElement.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/videos/"+introType);	videoIntroElement.load();
 			var videoIntroElementIconLoading = document.createElement("div");
 			document.getElementById("div_Slide").appendChild(videoIntroElementIconLoading)
 			videoIntroElementIconLoading.setAttribute("id", "videoIntroElementIconLoading");
@@ -598,23 +623,20 @@ function introVideos(){
 			$(videoIntroElementIconLoading).css("color","#bebebe");
 			$(videoIntroElementIconLoading).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-cog fa-spin fa-3x"></i></p>');
 			//TweenLite.to(videoIntroElementIconLoading, .5, {opacity:1,scale:.8});
-			videoIntroElementIconLoading.className='fadeIn';
+            videoIntroElementIconLoading.className="fadeIn";
 			$(videoIntroElementIconLoading).bind(changeClick,function(e){
-				videoIntroElementIconLoading.className='fadeOut'
-				//TweenLite.to(videoIntroElementIconLoading, 1, {opacity:0, scale:1.5,onComplete:function(){
-				//$(videoIntroElementIconLoading).css("display",'none');	
-				//}});
+				TweenLite.to(videoIntroElementIconLoading, 1, {opacity:0, scale:1.5,onComplete:function(){
+				$(videoIntroElementIconLoading).css("display",'none');	
+				}});
 				videoIntroElement.play();
 			});
 			videoIntroElement.addEventListener("progress",function()
 			{
 				$(videoIntroElementIconLoading).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-play-circle-o fa-3x"></i></p>');
-					videoIntroElementIconLoading.className="fadeOut"
 					//TweenLite.to(videoIntroElementIconLoading, .5, {opacity:0,onComplete:function(){
-					//$(videoIntroElementIconLoading).css("visibility",'hidden');	
-					//}});
+					   //$(videoIntroElementIconLoading).css("visibility",'hidden');	
+				    //}});
 				$(videoIntroElementIconLoading).css("visibility",'visible');
-				videoIntroElementIconLoading.className="fadeIn"
 				//TweenLite.to(videoIntroElementIconLoading, .3, {opacity:1,'color':'black',scale:1});
 			});
 			videoIntroElement.addEventListener("playing", function () 
@@ -640,6 +662,7 @@ function introVideos(){
 introVideos();
 
 function fimIntro(){
+	
 	$(messageFinalElementText).html('<br><br><br>Parabéns! Você concluiu o curso <br><br><strong>'+cpInfoProjectName+'</strong><br><br>Dúvidas? Envie um e-mail para <br>'+cpInfoEmail+'');
 	cp.movie.am.mute(false);
 	cp.jumpToPreviousSlide();
@@ -655,36 +678,58 @@ function fimIntro(){
 	$(messageFinalElementText).css('color',"rgb(255,255,255");
 	$(messageFinalElementText).css('margin-left',"35%");
 	$(messageFinalElementText).css('margin-top','20%');
-	TweenLite.to(messageFinalElement, 1, {opacity:1,onComplete:function(){
-		TweenLite.to(messageFinalElementText, 1, {opacity:1});	
-	}});	
+    messageFinalElement.className="fadeIn"
+    messageFinalElementText.className="fadeIn"
+	//TweenLite.to(messageFinalElement, 1, {opacity:1,onComplete:function(){
+	//	TweenLite.to(messageFinalElementText, 1, {opacity:1});	
+	//}});	
 	$(messageFinalElementIcon).css('display','none');
 	$(logoCompanyContainer).css('display','block');
 	$(logoCompanyContainer).css('z-Index',5000);
-	TweenLite.to(logoCompanyContainer, .5, {opacity:1});	
+	//TweenLite.to(logoCompanyContainer, .5, {opacity:1});	
+    logoCompanyContainer.className="fadeIn"
+    feedback();
 }
 
 function feedback(){
 	var feedback = document.createElement('div');
 	document.getElementById("div_Slide").appendChild(feedback);
 	feedback.setAttribute('id','feedback');
-	feedback.setAttribute('style','border-radius:5px;position:absolute;top:60%;left:15%;background-color:rgba(255,255,255,1);z-index:200;width:700px;height:100px;display:table;');
-	feedback.className = 'shadow';
+	//feedback.setAttribute('style','border-radius:5px;position:absolute;top:60%;left:15%;background-color:rgba(255,255,255,1);z-index:200;width:700px;height:100px;display:table;');
+	feedback.style.display="flex";
+	feedback.style.borderRadius="5px";
+	feedback.style.position="relative";
+	feedback.style.zIndex=200;
+	feedback.style.width="100vw"
+	feedback.style.backgroundColor="white";
+	feedback.style.flexWrap="wrap"
+
 
 	var feedbackTitle = document.createElement('div')
 	feedback.appendChild(feedbackTitle)
 	feedbackTitle.setAttribute('id','feedbackTitle')
-	feedbackTitle.setAttribute('style','padding:10px;color:white;top:0;left:0;background-color:#666666;height:25px;display:table-cell;vertical-align:middle;text-align:center;')
+	//feedbackTitle.setAttribute('style','padding:10px;color:white;top:0;left:0;background-color:#666666;vertical-align:middle;text-align:center;')
+	feedbackTitle.style.padding="10px";
+	feedbackTitle.style.color="white";
+	feedbackTitle.style.flexGrow="1"
+	feedbackTitle.style.backgroundColor="#666666";
+	feedbackTitle.style.textAlign="center"
+
 	//$(feedbackTitle).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
 	$(feedbackTitle).css("font-size","14px");
 	feedbackTitle.innerHTML = "COM 144 LETRAS DEIXE SUA OPINIÃO DE COMO PODEMOS MELHORAR OS CURSOS!"
 
-	var feedbackTextarea = document.createElement('textarea')
+	var feedbackTextarea = document.createElement('div')
 	feedback.appendChild(feedbackTextarea)
 	feedbackTextarea.setAttribute('id','feedbackTextarea')
-	feedbackTextarea.setAttribute('maxlength','144')
-	feedbackTextarea.setAttribute('placeholder','Digite sua mensagem aqui.')
-	feedbackTextarea.setAttribute('style','color:#666666;width:10%;position:static;width:365px;height:72px;border-style:hidden;')
+	feedbackTextarea.style.flexGrow="1";
+	var feedbackText = document.createElement('textarea')
+	feedbackTextarea.appendChild(feedbackText)
+	feedbackText.setAttribute('id','feedbackText')
+	feedbackText.setAttribute('maxlength','144')
+	feedbackText.setAttribute('placeholder','Digite sua mensagem aqui.')
+	feedbackText.style.width="100%";
+	feedbackText.style.height="100%";
 	//$(feedbackTextarea).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
 	$(feedbackTextarea).css("font-size","16px");
 	$(feedbackTextarea).css("font-weight","200");
@@ -741,6 +786,7 @@ function feedback(){
 	})
 	feedbackStar5.setAttribute('style','display:inline;color:#BEBEBE')
 	feedbackStar5.innerHTML = "<i class='fa fa-star fa-3x'></i>"
+	logoCourse.parentNode.insertBefore(feedback, logoCourse.nextSibling);
 }
 
 function scoreValues(){
@@ -792,7 +838,8 @@ function messageRefresh(){
 	$(messageFinalElementIcon).css('opacity',0);
 	TweenLite.to(messageFinalElement,1,{opacity:.9});
 	$(logoCompanyContainer).css('display','block');
-	TweenLite.to(logoCompanyContainer,.3,{opacity:1});
+	//TweenLite.to(logoCompanyContainer,.3,{opacity:1});
+    logoCompanyContainer.className="fadeIn"
 	$(logoCompanyContainer).css('z-Index',5000);
 	$(messageFinalElementText).css('margin-top',"30%");
 	cpCmndPause=1;
@@ -831,14 +878,17 @@ function chooseTopicAndContinue(){
 	$(iniciaElement).html('<p style="display:table-cell;vertical-align:middle;text-align:center;">CLIQUE AQUI PARA INICIAR</p>');
 	
 	try{
-		TweenLite.to(nomeTopicoNovidade, 1, {opacity:1});		
+		//TweenLite.to(nomeTopicoNovidade, 1, {opacity:1});		
+        nomeTopicoNovidade.className="fadeIn";
 	}
 	catch(e){}
 
-	TweenLite.to(logoCompanyContainer,.25,{opacity:1});
+	//TweenLite.to(logoCompanyContainer,.25,{opacity:1});
+    logoCompanyContainer.className="fadeIn";
 	$(logoCompanyContainer).css('display','block');
 	
-	TweenLite.to(nomeTopicoContainer,.5,{opacity:1});
+	//TweenLite.to(nomeTopicoContainer,.5,{opacity:1});
+    nomeTopicoContainer.className="fadeIn";
 	
 	
 	if(cpInfoCurrentSlideLabel == "Seja Bem Vindo!")
@@ -860,35 +910,44 @@ function chooseTopicAndContinue(){
 		var avaliacaoPratica = document.createElement("div")
 		avaliacaoPratica.setAttribute("id", "avaliacaoPratica");
 		document.getElementById("project_main").appendChild(avaliacaoPratica);
-		avaliacaoPratica.setAttribute("style", "position:absolute");
-		$(avaliacaoPratica).css("display","table");
-		$(avaliacaoPratica).css('top','51%');
-		$(avaliacaoPratica).css('left','53%');
-		$(avaliacaoPratica).css('width',175);
-		$(avaliacaoPratica).css('height',175);
-		$(avaliacaoPratica).css("color","#ffffff");
-		$(avaliacaoPratica).css("font-size",24);
+		avaliacaoPratica.className="avaliacaoPratica"
+        $(avaliacaoPratica).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-star fa-3x"></i><br>AVALIAÇÃO<br>PRÁTICA</p>');
+        //avaliacaoPratica.setAttribute("style", "position:absolute");
+		//$(avaliacaoPratica).css("display","table");
+		//$(avaliacaoPratica).css('top','51%');
+		//$(avaliacaoPratica).css('left','53%');
+		//$(avaliacaoPratica).css('width',175);
+		//$(avaliacaoPratica).css('height',175);
+		//$(avaliacaoPratica).css("color","#ffffff");
+		//$(avaliacaoPratica).css("font-size",24);
 		//$(avaliacaoPratica).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
-		$(avaliacaoPratica).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-star fa-3x"></i><br>AVALIAÇÃO<br>PRÁTICA</p>');
-		$(avaliacaoPratica).css('opacity',0);
-		TweenLite.to(avaliacaoPratica, .3, {scale:1,opacity:1});
-		var textoQuery = document.querySelector("canvas[id*='Text_Caption']")
-		//appending the current element to the div_Slide so that can be setted with animations;
+        
+        try{
+        var textoQuery = document.querySelector("canvas[id*='Text_Caption']")
 		document.getElementById("div_Slide").appendChild(textoQuery);
 		textoQuery.style.visibility="visible";
 		textoQuery.style.opacity=0;
 		textoQuery.style.left='40px';
 		textoQuery.style.top='110px';
-		TweenLite.to(textoQuery,.6,{opacity:1});
+		TweenLite.to(textoQuery,.6,{opacity:1});    
+        }catch(e){}
+
+		
 		
 		$(nomeTopicoText).html(cpInfoCurrentSlideLabel);
 		
-		$(logoCourse).css('width','22%');
-		$(logoCourse).css('height','29%');
-		$(logoCourse).css('top','18%');
-		$(logoCourse).css('left','73%');
-		TweenLite.to(logoCourse,.3,{opacity:1});
-		
+		//$(logoCourse).css('width','22%');
+		//$(logoCourse).css('height','29%');
+		//$(logoCourse).css('top','18%');
+		//$(logoCourse).css('left','73%');
+		//TweenLite.to(logoCourse,.3,{opacity:1});
+        logoCourse.className="logoCourseFvm"
+	//createSidePainel();
+	//createPainel();
+	//	topicType();
+	//	topicLanguage();
+	//topicLanguage();
+		//painel.className='painelLateral';
 		
 		//$(avaliacaoPraticaText).css("font-size",24);
 		//TweenLite.to(avaliacaoPratica,.4,{opacity:1});
@@ -908,42 +967,41 @@ function chooseTopicAndContinue(){
 		}
 		else if(cpInfoCurrentSlideLabel == "Faça Você Mesmo!")
 		{
+		
 			$(logoCompanyContainer).css('display','none');
-			TweenLite.to(textoQuery,.6,{opacity:0});
+			//TweenLite.to(textoQuery,.6,{opacity:0});
+            try{textoQuery.className="fadeOut";}catch(e){}
 			//$(textoQuery).css('display','none');
 			//TweenLite.to(textoQuery,.5,{opacity:0});
 			//TweenLite.to(videoIntroElement,.6,{opacity:0});
 			//TweenLite.to(nomeTopicoContainer,.6,{opacity:0});
-			TweenLite.to(avaliacaoPratica,.2,{opacity:0});
-			TweenLite.to(logoCourse,.8,{opacity:0,onComplete:function(){
-				$(avaliacaoPratica).css('visibility','hidden');
-				cp.jumpToNextSlide();
-				fvm();
-			}});
+			//TweenLite.to(avaliacaoPratica,.2,{opacity:0});
+            avaliacaoPratica.className="fadeOut";
+			//TweenLite.to(logoCourse,.8,{opacity:0,onComplete:function(){
+            logoCourse.className="fadeOut"
+            logoCourse.addEventListener("transitionend", function(){
+                cp.jumpToNextSlide();
+			    fvm();    
+            });
 		}
 		else if(cpInfoCurrentSlideLabel != "Faça Você Mesmo!" && cpInfoCurrentSlideLabel != "Seja Bem Vindo!") 
 		{
 			$(logoCompanyContainer).css('display','none');
 			logoCourse.className='topicoNormalLogoCourse fadeOut'
-			//$(logoCourse).animate({opacity:0,left:-50},200, function()
-			//{
-				//$(logoCourse).css("visibility","hidden")
-				createSidePainel();
-				createPainel();
-				detectChange()
-				//ents();
-				//intervalCaption = window.setInterval(updateSlideElements, 100);
-				nextSlide();	
-
-			//});
+            createSidePainel();
+			createPainel();
+			nextSlide();	
 		}
 	});
 };
 
 function fvm(){
-	$(logoCourse).animate({opacity:0},200, function(){	
+
+	//$(logoCourse).animate({opacity:0},200, function(){	
 		//TODO: virtualKey when an interaction is set to null and the user in a tablet must hit a function key.
-		$(logoCourse).css("display", 'none');
+		//$(logoCourse).css("display", 'none');
+		
+
 		var virtualKey = document.createElement("div");
 		virtualKey.setAttribute("id", "virtualKey");
 		document.getElementById("project_main").appendChild(virtualKey);
@@ -1172,7 +1230,7 @@ function fvm(){
 		var pointerIcon = document.createElement("img");
 		pointerIcon.setAttribute("id", "pointerIcon");
 		document.getElementById("project_main").appendChild(pointerIcon);
-		pointerIcon.setAttribute("src", "https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/pointer.png");
+		pointerIcon.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/imagesTR/pointer.png");
 		pointerIcon.setAttribute("style", "position:absolute; z-index:100");
 		$(pointerIcon).css('opacity',0);
 		$(pointerIcon).css("border-radius","25px");
@@ -1182,7 +1240,7 @@ function fvm(){
 		var dicaBtn = document.createElement("img");
 		dicaBtn.setAttribute("id", "dicaBtn");
 		document.getElementById("project_main").appendChild(dicaBtn);
-		dicaBtn.setAttribute("src", "https://github.com/andrepazleal/captivateCourseAutomation/blob/Teste/imagesTR/introducaoIcon.png");
+		dicaBtn.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/imagesTR/introducaoIcon.png");
 		dicaBtn.setAttribute("width",50)
 		dicaBtn.setAttribute("height",50)
 		dicaBtn.setAttribute("style", "position:absolute; z-index:100");
@@ -1201,12 +1259,12 @@ function fvm(){
 		var interval1 = window.setInterval(check, 50);
 		var interval2 = window.setInterval(checkNumberOfTries, 50);
 		
-		$(document).bind("keyup", keyTries);
+		
 		
 		function keyTries(e){ 
 			TweenLite.to(message, .1, {opacity:0,onComplete:function(){
     	$(message).css('visibility','hidden');
-    }});
+        }});
 		//DONE:make the message dissapear when pressing the keyboard;
 		if(questionType[0] == 'Text')
 		{
@@ -1228,21 +1286,23 @@ function fvm(){
 				////console.log("Tecla Pressionada: "+keyPress)
 				////console.log("Tecla a ser pressionada: "+keyName)
 				//TODO: create a counter because captivate can´t handle the function only key press;
-				var textEntry = $('"div_Slide"[id*=Text_Entry]');
+				var textEntry = $('[id*=Text_Entry]');
 				$(textEntry).css("z-index",-100);
+				//console.log(cp.model.data[questionName].currentAttempt)
 				try
 				{
 					//adding value to the attempt when the user click the virtualKey
 					var triesCounterFunctionKey = cp.model.data[questionName].currentAttempt = parseInt(cp.model.data[questionName].currentAttempt)+1;
+					//console.log(triesCounterFunctionKey)
 				}
 				catch(e){}
 
 				if(triesCounterFunctionKey==3)
 				{
-					//cp.jumpToNextSlide();
+					cp.jumpToNextSlide();
 					//not used because was jumped two slides at a time.
 					//setTimeout(cp.jumpToNextSlide,1000)
-					intervalKeytries = setTimeout(cp.jumpToNextSlide, delay=1000);
+					//intervalKeytries = setTimeout(cp.jumpToNextSlide, delay=1000);
 				}
 			}
 			else
@@ -1263,26 +1323,87 @@ function fvm(){
 			}
 		}
 	}
-	//DONE: Pass the variable by parameter and reduced the amount of functions;
-	$(keyEsc).bind("click", function(){
+    	
+    //$(document).bind("keydown", keyTries);
+    $(document).unbind('keyup').bind('keyup', keyTries);
+     function __triggerKeyboardEvent(el, keyCode)
+     {
+         var eventObj = document.createEventObject ?
+         document.createEventObject() : document.createEvent("Events");
+         if(eventObj.initEvent){
+             eventObj.initEvent("keyup", true, true);
+         }
+         eventObj.keyCode = keyCode;
+         eventObj.which = keyCode;
+         el.dispatchEvent ? el.dispatchEvent(eventObj) : el.fireEvent("onkeydown", eventObj); 
+     } 
+    
+    keyEsc.addEventListener('click',function(){
+         var inputElement = document.querySelector('input[aria-label*=Text ]')
+         __triggerKeyboardEvent(inputElement, 27);
+     });   
+
+     keyF2.addEventListener('click',function(){
+         var inputElement = document.querySelector('input[aria-label*=Text ]')
+         __triggerKeyboardEvent(inputElement, 113);
+     });
+    keyF4.addEventListener('click',function(){
+         var inputElement = document.querySelector('input[aria-label*=Text ]')
+         __triggerKeyboardEvent(inputElement, 115);
+     });
+    keyF7.addEventListener('click',function(){
+         var inputElement = document.querySelector('input[aria-label*=Text ]')
+         __triggerKeyboardEvent(inputElement, 118);
+     });
+    keyF8.addEventListener('click',function(){
+         var inputElement = document.querySelector('input[aria-label*=Text ]')
+         __triggerKeyboardEvent(inputElement, 119);
+     });
+        //DONE: Pass the variable by parameter and reduced the amount of functions;
+	/*$(keyEsc).bind("click", function(){
     	var e = jQuery.Event("keyup");
     	e.keyCode = 27;
     	TweenLite.to(keyEsc, .05, {scale:1.2,onComplete:function()
 		{
 			TweenLite.to(keyEsc, .05, {scale:1});	
 		}});
-    	$('"div_Slide"[aria-label*=Text ]').trigger(e);
-	});
-
-	$(keyF2).bind("click", function(){
+    	$('[aria-label*=Text ]').trigger(e);
+	   });*/
+        
+    /*keyF2.addEventListener('click',function(){
+        var e = new KeyboardEvent("keyup", {code:113, charCode:'113', bubbles : true, cancelable : true, key :'113', char :'113', keyCode: 113, shiftKey : false});
+        document.querySelector('input[aria-label*=Text ]').dispatchEvent(e);
+        console.log(e)
+    });*/
+        
+    /*keyF2.addEventListener('click', function(event) {
+        //console.log(event)
+        event.which=113;
+        event.keyCode=113;
+        //console.log(event.which)
+        //this.dispatch(event)
+    });*/
+        
+      
+    /*$(keyF2).bind("keydown keypress keyup change", function(){
+        var e = jQuery.Event("keyup");
+    	e.keyVal = 113;
+        //var keyVal = 113;
+        $(this).trigger({type: 'keypress', keyCode: keyVal, which: keyVal, charCode: keyVal});
+    });*/
+    
+	/*$(keyF2).click("click", function(){
     	var e = jQuery.Event("keyup");
     	e.keyCode = 113;
+        e.which = 113;
     	//e.charCode = 13;
     	TweenLite.to(keyF2, .05, {scale:1.2,onComplete:function()
 		{
 			TweenLite.to(keyF2, .05, {scale:1});	
 		}});
-    	$('"div_Slide"[aria-label*=Text ]').trigger(e);
+    	$('input[aria-label*=Text ]').trigger(e);
+        //e.namespace_re="/(^|\.)(\.|$)/"
+        console.log(e)
 	});
 
 	$(keyF4).bind("click", function(){
@@ -1292,7 +1413,7 @@ function fvm(){
 		{
 			TweenLite.to(keyF4, .05, {scale:1});	
 		}});
-    	$('"div_Slide"[aria-label*=Text ]').trigger(e);
+    	$('[aria-label*=Text ]').trigger(e);
 	});
 
 	$(keyF7).bind("click", function(){
@@ -1302,7 +1423,7 @@ function fvm(){
 		{
 			TweenLite.to(keyF7, .05, {scale:1});	
 		}});
-    	$('"div_Slide"[aria-label*=Text ]').trigger(e);
+    	$('[aria-label*=Text ]').trigger(e);
 	});
 
 	$(keyF8).bind("click", function(){
@@ -1312,8 +1433,8 @@ function fvm(){
 		{
 			TweenLite.to(keyF8, .05, {scale:1});	
 		}});
-    	$('"div_Slide"[aria-label*=Text ]').trigger(e);
-	});
+    	$('[aria-label*=Text ]').trigger(e);
+	});*/
     
   	var courseArea = document.getElementById('div_Slide');
 	$(courseArea).bind("click", function() {
@@ -1339,6 +1460,7 @@ function fvm(){
 	
 	function checkNumberOfTries()
 	{
+
 		try{
 			successElement = document.querySelectorAll("[id*='Success_Caption_']")
 			successElement.innerHTML = "<p style='font-size:150px;color:#FFCC00;'>★<p/>"+"<p style='margin-top:-170px;font-size:50px,color:white'>PARABÉNS VOCÊ FEZ <br><b>"+ cpInfoPercentage+' PONTOS!';
@@ -1384,7 +1506,7 @@ function fvm(){
 			TweenLite.to(firstTrie,.25, {background:'red'});
 		}
 		if(numberOfTries >= 3)
-		{
+		 {
 			//captivate do not sum the content when the interaction it is a typebox but it shows as success for the user if the user type the right option at the last choice, that´s why the success message will have to only when it´s different from typebox;
 			//TODO: the DI must change the number off attempts inside captivate from 3 that they are used to for 4 attempts when the type of interaction is typebox, trying to change that by modifying for the DI automatically.
 			try{
@@ -1430,7 +1552,7 @@ function fvm(){
 		catch(e){}
 
 		//var triesError = $('"div_Slide"[id*=Failure],[id*=Success]');
-		var triesError = $('"div_Slide"[id*=Failure]');
+		var triesError = $('[id*=Failure]');
 		$(triesError).css("z-index",-100);
 		//var dicaInformacao = $('"div_Slide"[id*=accStr2]');
 		try{
@@ -1523,22 +1645,27 @@ function fvm(){
 			$(logoCompanyContainer).css('z-index','100');
 
 			TweenLite.to(logoCompanyContainer, .2, {opacity:1});
-			$(logoCourse).css('top',350);
+			//$(logoCourse).css('top',350);
 
-			$(logoCourse).css("display", 'block');
+			//$(logoCourse).css("display", 'block');
 
-			TweenLite.to(logoCourse, .5, {opacity:1,left:'50%'});
+			//TweenLite.to(logoCourse, .5, {opacity:1,left:'50%'});
+            logoCourse.className="logoCoursefvmEndAnimation"
+            
 
-			$(avaliacaoPratica).css('visibility','visible');
-			$(avaliacaoPratica).css('top',350);
-			$(avaliacaoPratica).css('left',0);
-			$(avaliacaoPratica).css('font-size','15px');
-			$(avaliacaoPratica).css("background", '#FF8300');	
-			$(avaliacaoPratica).css("width", '22%');	
-			$(avaliacaoPratica).css("height", '29%');	
-			TweenLite.to(avaliacaoPratica, .5, {opacity:1,left:'28%'});		
-			$(avaliacaoPratica).css("z-index",100);
+			//$(avaliacaoPratica).css('visibility','visible');
+			//$(avaliacaoPratica).css('top',350);
+			//$(avaliacaoPratica).css('left',0);
+			//$(avaliacaoPratica).css('font-size','15px');
+			//$(avaliacaoPratica).css("background", '#FF8300');	
+			//$(avaliacaoPratica).css("width", '22%');	
+			//$(avaliacaoPratica).css("height", '29%');	
+			//TweenLite.to(avaliacaoPratica, .5, {opacity:1,left:'28%'});		
+			//$(avaliacaoPratica).css("z-index",100);
+            
+            avaliacaoPratica.className="avaliacaoPraticafvmEndAnimation"
 			$(avaliacaoPratica).html('<p style="line-height:120%;display:table-cell;font-size:24px;vertical-align:middle;text-align:center;pointer-events:none;">VOCÊ ACERTOU<br>'+cpInfoPercentage+'%</p>');
+            changeColors();
 		}
 	}
 	
@@ -1585,7 +1712,7 @@ function fvm(){
 		}
   		dicaMostra=!dicaMostra;
 		})
-	})
+	//})
 }
 
 function finalMessage(){
@@ -1606,11 +1733,10 @@ function sejaBemVindo(){
 	var Image_welcomeIcon = document.createElement("img");
 	Image_welcomeIcon.setAttribute("id", "Image_welcomeIcon");
 	document.getElementById("project_main").appendChild(Image_welcomeIcon);
-	Image_welcomeIcon.setAttribute("src", "https://github.com/andrepazleal/captivateCourseAutomation/blob/Teste/imagesTR/introducaoIcon.png");
+	Image_welcomeIcon.setAttribute("src", "https://moodle.dominiosistemas.com.br/assets/imagesTR/introducaoIcon.png");
 		Image_welcomeIcon.className='welcomeLogoIcon fadeIn'
 	createSidePainel();
 	createPainel();
-	detectChange();
 	topicType();
 	topicLanguage();
 
@@ -1642,7 +1768,7 @@ function sejaBemVindo(){
 //	}
 }
 
-function saibaMais(){	
+/*function saibaMais(){	
 	$(logoCourse).animate({opacity:0,left:-50},500, function()
 	{
 		cp.jumpToNextSlide();
@@ -1667,53 +1793,31 @@ function saibaMais(){
 			}
 		}
 	});
-}
+}*/
 
 function createPainel(){
-	//console.log('Painel Created')
 	var painel = document.createElement("div");
 	document.getElementById("project").appendChild(painel);
 	painel.setAttribute("id", "painel")
-	//////////////////////////////added//////////////////////////////////
 	
-	//$(painel).css("z-index",150);
-	//$(painel).css("width",'80%');
-	//$(painel).css("height",'20%');
-	//$(painel).css("position","absolute");
-	//$(painel).css("left",-50);
-	//$(painel).css("top",'80%');
-	//$(painel).css("opacity",0);	
-	//$(painel).css('vertical-align',"middle");
-	//$(painel).css('font-family',"Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
-	//$(painel).css('color',"#ffffff");
-	//$(painel).css("padding","10px");
-	//$(painel).css("background","#666666")
-	
-	var painelNomeTopico = document.createElement("div");
+    var painelNomeTopico = document.createElement("div");
 	painelNomeTopico.setAttribute("id", "painelNomeTopico");
-	var nomeTopicoCapitalize = cpInfoCurrentSlideLabel.toUpperCase();
+	
+    var nomeTopicoCapitalize = cpInfoCurrentSlideLabel.toUpperCase();
 	$(painelNomeTopico).text(nomeTopicoCapitalize.replace(/<\/?[a-z][a-z0-9]*[^<>]*>/ig, ""))
-	//$(painelNomeTopico).css("top",-15);
-	//$(painelNomeTopico).css("left",5);
-	//$(painelNomeTopico).css("font-size",11);
-	//$(painelNomeTopico).css("position","absolute");
-	//$(painelNomeTopico).css("text-shadow","1px 1px 2px rgba(0, 0, 0, 1)");
 	$(painel).append(painelNomeTopico);
 	
-	//var painelTitleSlide = document.createElement("div");
-	//painelTitleSlide.setAttribute("id", "painelTitleSlide");
-	//$(painelTitleSlide).css("font-size",'280%');
-	//$(painelTitleSlide).css("font-weight",'lighter');
-	//$(painel).append(painelTitleSlide);
+	var painelTitleSlide = document.createElement("div");
+	painelTitleSlide.setAttribute("id", "painelTitleSlide");
+	painelTitleSlide.setAttribute("style", "color:white");
+	$(painel).append(painelTitleSlide);
 	
+
 	var painelTextoSlide = document.createElement("div");
-	//var painelTexto = document.getElementById("ccText")
 	painelTextoSlide.setAttribute("id", "painelTextoSlide");
-	//$(painelTextoSlide).css("top",0);
-	//$(painelTextoSlide).css("left",0);
-	//$(painelTextoSlide).css("text-align",'justify');
+	//painelTextoSlide.setAttribute("style", "pointer-events:none");
 	$(painel).append(painelTextoSlide);
-	//console.log(painelTextoSlide)
+
 
 	try{
 		var slideNumber = cp.movie.playbackController.currentSlide;
@@ -1825,25 +1929,9 @@ function createSidePainel(){
 	var showSidePainel = document.createElement("div");
 	showSidePainel.setAttribute("id", "showSidePainel");
 	document.getElementById("project_main").appendChild(showSidePainel);	
-	$(showSidePainel).css("visibility", 'hidden');
-	$(showSidePainel).css("z-index", 100);
-	$(showSidePainel).css("opacity", 0);
-	$(showSidePainel).css("position", "absolute");
-	$(showSidePainel).css("height", 30);
-	$(showSidePainel).css("width", 30);
-	$(showSidePainel).css('top',screenSizeHeight-30);
-	$(showSidePainel).css('left',screenSizeWidth-30);
-	$(showSidePainel).css("background-color","#FF8300");
-	$(showSidePainel).css('font-size','180%')
-	$(showSidePainel).css('display','flex')
-	$(showSidePainel).css('justify-content','center')
-	$(showSidePainel).css('align-items','center')
+	
 	$(showSidePainel).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;-webkit-user-select:none;">≡');
-	$(showSidePainel).css('color',"#ffffff");
-	$(showSidePainel).css('text-align',"center");
-	$(showSidePainel).css("-webkit-user-select","none")
-	$(showSidePainel).css("user-select","none")
-	$(showSidePainel).css("-ms-user-select","none")
+
 	TweenLite.to(showSidePainel,.5,{opacity:1,scale:1});
 	$(showSidePainel).bind(changeClick,function(e){
 	//$(showSidePainel).bind("click", function(){
@@ -1921,14 +2009,11 @@ function createSidePainel(){
 	  	}
 	  	else 
 	  	{
-		    //TweenLite.to(painel, .3, {left:10,opacity:1});
 		    painel.className='moveIn'
 		    positionPainel();	
 			$(painel).css("visibility","visible");
 			$(painel).css('display','block');
-			//$(painelBtn).css('opacity',1);
 			$("#painelBtn p").css('opacity',1);
-			//intervalCaption = window.setInterval(updateSlideElements, 100);
 	  	}
 	  	painelMostra=!painelMostra;
 	});
@@ -2058,7 +2143,6 @@ function createSidePainel(){
 	    	intervalLanguage = setTimeout(callee, delay=100);
 		})();
 		spanish=true;
-		setTimeout(updateSlideElements, 100);
 	   $(languageTextEnglish).css('opacity',1);
 	    $(languageTextSpanish).css('opacity',.3);
 	  }
@@ -2069,7 +2153,6 @@ function createSidePainel(){
 	  }
 	  english=!english;
 	  portuguese = true;
-	  setTimeout(updateSlideElements, 100);
 	});
 
 	spanish = true;
@@ -2084,7 +2167,6 @@ function createSidePainel(){
 	    	intervalLanguage = setTimeout(callee, delay=100);
 		})();
 	    english=true;
-	    setTimeout(updateSlideElements, 100);
 	     $(languageTextSpanish).css('opacity',1);
 	    $(languageTextEnglish).css('opacity',.3);
 
@@ -2098,7 +2180,6 @@ function createSidePainel(){
 	  }
 	  spanish=!spanish;
 	  portuguese = true;
-	  setTimeout(updateSlideElements, 100);
 	});
 
 	var pausado = true;
@@ -2141,7 +2222,6 @@ function createSidePainel(){
 }
 
 function prevSlide(){
-	setTimeout(updateSlideElements, 100);
 	if(cpInfoCurrentSlide == 2 || cpInfoCurrentSlide == 1)
 	{
 		$(showSidePainel).css("visibility", 'hidden');
@@ -2172,9 +2252,8 @@ function prevSlide(){
 }
 
 function nextSlide(){
-	setTimeout(updateSlideElements, 100);
 	cp.jumpToNextSlide();
-
+	
 	if(cpInfoCurrentSlide == 1)
 	{
 		$(messageFinalElement).css("display", 'block');	
@@ -2192,7 +2271,6 @@ function nextSlide(){
 			var painelMostra= true;
 			//$(painel).css("left",-50);
 			//TweenLite.to(painel,.3,{left:'9%',opacity:1});
-			//intervalCaption = window.setInterval(updateSlideElements, 100);
 			//$(ccText).css('opacity',0);
 			//TweenLite.to(ccText,.3,{opacity:1});
 			$(showSidePainel).css("visibility", 'visible');
@@ -2218,8 +2296,6 @@ function nextSlide(){
 			$(nextBtn).css('visibility','visible');
 			$(painel).css("visibility","block");
 			var painelMostra= true;
-			//TweenLite.to(painel,.3,{left:'9%',opacity:1});
-			//intervalCaption = window.setInterval(updateSlideElements, 100);
 			$(ccText).css('opacity',0);
 			TweenLite.to(ccText,.3,{opacity:1});
 			$(showSidePainel).css("visibility", 'visible');
@@ -2248,39 +2324,6 @@ function checkWidget(){
 	}
 };
 
-function character(){
-	character = document.createElement("div");
-	character.setAttribute("id", "character");
-	document.getElementById("project_main").appendChild(character);
-	character.addEventListener("animationend", function(){
-	});
-	characterStartInterval = setInterval(characterStart, 100);
-
-	function characterStart(){
-	try{
-	if(cp.movie.am.currentSlideAudio == undefined)
-	{
-		TweenLite.to(character,.250,{opacity:0});   
-	}
-	else
-	{
-		TweenLite.to(character,.250,{opacity:1});   
-	}
-	if(cp.movie.am.pace == null){
-		character.className = 'idle';
-	}
-	else{
-		character.className = 'talking';
-	}		
-		}catch(e){}
-	}
-	//$(character).bind("click", function(){
-		//clearInterval(characterStartInterval)
-		//character.className = 'idle';
-		//characterStartInterval = setInterval(characterStart, 100);
-		//cp.movie.am.pauseCurrentSlideAudioForInteractiveClick();
-	//});
-}
 
 function mostrarOcultar(parameter){
 	$(parameter).css('box-shadow', '1px 1px 50px rgba(0,0,0,0.5)')
@@ -2349,79 +2392,47 @@ try{
 	}catch(e){}
 }
 
-/*function successMessage(){
-	try
-	{
-		successElementCaption = document.querySelector("[id*='Success_Caption_']")
-		successElementCaption.innerHTML = "";
-		var successElementIcon = document.createElement('div');
-		successElement.appendChild(successElementIcon);
-		//$(successElementIcon).css('font-family',"Knowledge, Segoe UI Light, Avenir-Light, Arial");
-		$(successElementIcon).css('display',"table");
-		$(successElementIcon).css('text-align',"center");
-		$(successElementIcon).css('color',"white");
-		$(successElementIcon).css('font-size','1000%');
-		$(successElement).css('left',0);
-		$(successElement).css('top',0);
-		$(successElement).css('width','100%');
-		$(successElement).css('height','100%');
-		$(successElementIcon).css('width','100%');
-		$(successElementIcon).css('height','100%');
-		$(successElement).css("background-color","#FF8300");
-		$(successElementIcon).css("font-weight",'lighter');
-		$(successElementIcon).css("z-index",'20000');
-		$(successElementIcon).html("<p style='display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;''><i class='fa fa-check-circle-o fa-3x'></i></p>");
-		//successElementIcon.className='reflectBelow imageAnimation'
-	}
-	catch(e)
-	{}
-}*/
-
-/*function changeColors(){
-	try{
-		var backgroundColor = document.getElementsByTagName('stop')[0].style.stopColor;
-	}catch(e){backgroundColor=false;}
-	try{
-		var backgroundColorIpad = document.getElementById('__bgDiv__').className;
-	}catch(e){}
-	if(backgroundColor != false && backgroundColor != 'rgb(255, 255, 255)' || backgroundColorIpad == 'cp-gf' || cpInfoCurrentSlide == cpInfoSlideCount){
-		$(logoCompanyContainer).css('-webkit-filter',"brightness(2.3) grayscale(1)");	
-			painelTextoSlide.className="changeColorsClear";
-			$("nextBtn, i").css('color', 'rgba(255, 255, 255, 1)');
-	}
-	else{
-			painelTextoSlide.className="changeColorsDark"
-			$(logoCompanyContainer).css('-webkit-filter',"brightness(1) grayscale(0)");	
-			$("nextBtn, i").css('color', 'rgba(0,0,0, 0.4)');
-	}
-}*/
 
 function changeColors(){
+	var backgroundColorSlide = document.getElementById("div_Slide").firstChild.style.backgroundColor;
 	try{
 		var backgroundColor = document.getElementsByTagName('stop')[0].style.stopColor;
 	}catch(e){backgroundColor=false;}
-
 	try{
 		var backgroundColorIpad = document.getElementById('__bgDiv__').className;
 
 	}catch(e){}
-	if(backgroundColor != false && backgroundColor != 'rgb(255, 255, 255)' || backgroundColorIpad == 'cp-gf' || cpInfoCurrentSlide == cpInfoSlideCount){
+	//console.log("Background Slide Color: "+backgroundColorSlide);
+	//console.log(" Background Color: "+backgroundColor,"/ Ipad Background Color: "+backgroundColorIpad);
+
+	if(backgroundColorSlide != 'rgb(255, 255, 255)' || backgroundColor != false || backgroundColorIpad == 'cp-gf' || cpInfoCurrentSlide == cpInfoSlideCount){
+	//if(backgroundColorSlide == 'rgb(255, 255, 255)' || backgroundColorIpad == 'cp-gf' || cpInfoCurrentSlide == cpInfoSlideCount){
 		$(logoCompanyContainer).css('-webkit-filter',"brightness(2.3) grayscale(1)");	
 		$('p').css('color', 'rgba(255, 255, 255, 1)');
+		painelTitleSlide.className+=" changeColorsClear";
 		painelTextoSlide.className="changeColorsClear";
-		$("nextBtn, i").css('color', 'rgba(255, 255, 255, 1)');
+		nextBtn.className+=" changeColorsClear";
+		previousBtn.className+=" changeColorsClear";
+		//$("nextBtn, i").css('color', 'rgba(255, 255, 255, 1)');
 	}
 	else{
 		$('p').css('color', '#7d7d7d');
-		$('h1').css('color', '#7d7d7d');
-		painelTextoSlide.className="changeColorsDark"
+		//$('h1').css('color', '#7d7d7d');
+		painelTitleSlide.className+=" changeColorsDark";
+		painelTextoSlide.className="changeColorsDark";
+		nextBtn.className+=" changeColorsDark";
+		previousBtn.className+=" changeColorsDark";
+		//nextBtn.className="changeColorsDark";
+		//previousBtn.className="changeColorsDark";
 		$(logoCompanyContainer).css('-webkit-filter',"brightness(1) grayscale(0)");	
-		$("nextBtn, i").css('color', 'rgba(0,0,0, 0.4)');
+		//$("nextBtn, i").css('color', 'rgba(0,0,0, 0.4)');
 	}
 }
 
 function topicType(){
-	if(painelNomeTopico.innerHTML == 'SEJA BEM VINDO!'){
+	
+    if(painelNomeTopico.innerHTML == 'SEJA BEM VINDO!' && painelNomeTopico.innerHTML == "Faça Você Mesmo!"){
+		console.log('andre')
 		$(character).css("display",'none');	
 		painel.className='painelLateralWelcome'
 		painelTextoSlide.className='painelLateralTextoSlide'
@@ -2430,7 +2441,7 @@ function topicType(){
 		$(painelNomeTopico).css('display','none');			
 		changeColors();
 	}
-	else if(cpInfoDescription.split(' ')[0] == 'Character' || cpInfoCurrentSlideLabel == "Character!")
+    else if(cpInfoDescription.split(' ')[0] == 'Character' || cpInfoCurrentSlideLabel == "Character!")
 	{
 		$(painelNomeTopico).css('display','none');			
 		painel.className='painelLateral'
@@ -2441,6 +2452,40 @@ function topicType(){
 		$(character).css("left",'75%');	
 		$(character).css("display",'block');	
 		changeColors();
+        
+function character(){
+	character = document.createElement("div");
+	character.setAttribute("id", "character");
+	document.getElementById("project_main").appendChild(character);
+	character.addEventListener("animationend", function(){
+	});
+	characterStartInterval = setInterval(characterStart, 100);
+
+	function characterStart(){
+	try{
+	if(cp.movie.am.currentSlideAudio == undefined)
+	{
+		TweenLite.to(character,.250,{opacity:0});   
+	}
+	else
+	{
+		TweenLite.to(character,.250,{opacity:1});   
+	}
+	if(cp.movie.am.pace == null){
+		character.className = 'idle';
+	}
+	else{
+		character.className = 'talking';
+	}		
+		}catch(e){}
+	}
+	//$(character).bind("click", function(){
+		//clearInterval(characterStartInterval)
+		//character.className = 'idle';
+		//characterStartInterval = setInterval(characterStart, 100);
+		//cp.movie.am.pauseCurrentSlideAudioForInteractiveClick();
+	//});
+}
 		if(screenSizeHeight <= 600)
 		{
 			nextBtn.className='painelLateralNext800';
@@ -2449,15 +2494,16 @@ function topicType(){
 	}
 	else if(cpInfoCurrentSlideLabel == "Saiba Mais!")
 	{
-		
-		$(character).css("display",'none');	
+		changeColors();
+		//$(character).css("display",'none');	
 		painel.className='painelLateral';
 		$(logoCompanyContainer).css('visibility',"visible");
-		painelTextoSlide.className='painelLateralTextoSlide'
+		painelNomeTopico.className=' painelNomeTopicoSaibaMais';
+		painelTextoSlide.className=' painelLateralTextoSlideSaibaMais';
 		nextBtn.className='painelLateralNext';
 		previousBtn.className='painelLateralPrevious';
-		$('#painelNomeTopico, #painelTextoSlide').css('display','none');			
-		changeColors();
+		//$('#painelNomeTopico, #painelTextoSlide').css('display','none');			
+		
 		if(screenSizeHeight <= 600)
 		{
 			nextBtn.className='painelLateralNext800';
@@ -2475,12 +2521,48 @@ function topicType(){
 		previousBtn.className='painelLateralPrevious';
 		$(painelNomeTopico).css('display','none');			
 		changeColors();
-		var imageExist = document.querySelector("[id*='Image_']")
+		//Set height automatic
+		if(document.documentElement.clientWidth < 420)
+		{
+			//var painelTextoSlideHeight = (painel.clientHeight-painelTitleSlide.clientHeight)-140;
+			//painelTextoSlide.style.height=painelTextoSlideHeight+'px';
+			painelTextoSlide.style.maxHeight=(painel.clientHeight-painelTitleSlide.clientHeight)-25+'px';
+			painelTextoSlide.style.height='auto';
+		}
+		else
+		{
+			var painelHeight  = painelTextoSlide.clientHeight;
+			//painelTextoSlide.style.height=(painel.clientHeight-painelTitleSlide.clientHeight)-25;
+			painelTextoSlide.style.maxHeight=(painel.clientHeight-painelTitleSlide.clientHeight)-25+'px';
+			//TweenLite.to(painelTextoSlide, .2, {'max-height':(painel.clientHeight-painelTitleSlide.clientHeight)-25+"px"});		
+			painelTextoSlide.style.height='auto';
+			
+
+
+			//if(painelTextoSlide.clientHeight <= 100)
+			/*console.log(painelTextoSlide.clientHeight);
+			if(painelTextoSlide.clientHeight < 100)
+			{
+				console.log('a')
+				//var painelTextoSlideHeight = (painel.clientHeight-painelTitleSlide.clientHeight)-25;
+				//painelTextoSlide.style.height=painelTextoSlideHeight+'px';	
+				
+			}
+			else
+			{
+				console.log('a')
+				//painelTextoSlide.style.height='inherit';
+				//var painelTextoSlideHeight = (painel.clientHeight-painelTitleSlide.clientHeight)-25;
+				//painelTextoSlide.style.height=painelTextoSlideHeight+'px';	
+			}*/
+		}
+		var imageExist = document.querySelector("[id*='Image_'],[id^='Video_']")
 		if(imageExist == null || imageExist == undefined)
 		{
 			TweenLite.to(painelTextoSlide, .2, {width:'100%'});
 			TweenLite.to(painelTextoSlide, .2, {'max-width':'100%'});
 			TweenLite.to(painelTextoSlide, .2, {'margin-left':''});
+			TweenLite.to(painelTitleSlide, .2, {'margin-left':''});
 		}
 		else
 		{
@@ -2494,13 +2576,17 @@ function topicType(){
 			$(painelTextoSlide).css("font-size",'100%');
 			if(parseInt(imageExist.style.left) >= 299)
 			{
-                TweenLite.to(painelTextoSlide, .2, {'width':(parseInt(imageExist.style.left)-100)});	
+                TweenLite.to(painelTextoSlide, .2, {'width':(parseInt(imageExist.style.left)-80)});	
 				TweenLite.to(painelTextoSlide, .2, {'max-width':'520px'});		
 				TweenLite.to(painelTextoSlide, .2, {'margin-left':'0'});
+				TweenLite.to(painelTitleSlide, .2, {'margin-left':'0'});
 			}
 			else
 			{
+                //move painel content to the right
                 var imageWidthLeft = (parseInt(imageExist.style.left)+parseInt(imageExist.style.width))-20;
+				TweenLite.to(painelTitleSlide, .2, {'width':''});	
+				TweenLite.to(painelTitleSlide, .2, {'margin-left':imageWidthLeft});	
 				TweenLite.to(painelTextoSlide, .2, {'width':''});	
 				TweenLite.to(painelTextoSlide, .2, {'margin-left':imageWidthLeft});	
 				TweenLite.to(painelTextoSlide, .2, {'max-width':'405px'});		
@@ -2580,6 +2666,7 @@ function positionPainel(){
 	
 	if(screenSizeHeight != 600)
 	{
+		
 		for(index = 0; index < elements.length; index++)
 		{
 			
@@ -2690,7 +2777,7 @@ function positionPainel(){
 				{
 					area3 = elementsPosition;	
 				}
-				console.log("A1:"+area1+" A2:"+area2+" A3:"+area3);
+				//console.log("A1:"+area1+" A2:"+area2+" A3:"+area3);
 			}		
 			
 			if(area1 == undefined)
@@ -2710,6 +2797,122 @@ function positionPainel(){
 	    	}
 		}
 	}
+
+
+
+/*function topicLanguage(){
+	try
+	{
+		slideNumber = cp.movie.playbackController.currentSlide;
+		textoAcessibilidadePortugueseTitle = cp.model.data[slideNumber].accstr.replace('Painel Lateral!','').replace('','<h1 class="painelTitleSlide">').replace('<span>','</h1>').split('<title>')[0]
+		textoAcessibilidadePortuguese = cp.model.data[slideNumber].accstr.split('<title>')[1]
+		if(textoAcessibilidadePortuguese == "Painel Lateral! " || textoAcessibilidadePortuguese == "Character! ")
+		{
+			$(painelTextoSlide).html('');	
+		}
+		//ENGLISH
+		else if(english != true)
+		{
+			if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
+			{
+				msgFinalTopico = 'To continue, select the<br>next topic in the field above.<br><br>Questions? Send an email to <br> tutor.dominio@tr.com';
+			}
+			else
+			{
+				msgFinalTopico = 'To continue on the top bar,<br>click the Next Button. <br><br>Questions? Send an email to <br> tutor.dominio@tr.com'
+			}
+			textoAcessibilidadeEnglish = cp.model.data[slideNumber].accstr.split('  ')[1]
+			textoAcessibilidadeEnglishTitle= textoAcessibilidadeEnglish.split('<title>')[0];
+			textoAcessibilidadeEnglishText = textoAcessibilidadeEnglish.split('<title>')[1];
+			$('#soundBtn p').html('<p><i class="fa fa-volume-up fa-3x"></i><br>SOUND</p>');
+			$('#painelBtn p').html('<p><i class="fa fa-list-alt fa-3x"></i><br>PANEL</p>');
+			$(infoTopicoText).html("SLIDE "+cpInfoCurrentSlide+" OF "+cpInfoSlideCount);
+			if(textoAcessibilidadeEnglish != undefined)
+			{
+				$(painelTextoSlide).html(textoAcessibilidadeEnglish);	
+				if(cpInfoCurrentSlideLabel == "Painel Lateral!" || cpInfoCurrentSlideLabel == "Character!")				
+				{
+					$(painelTextoSlide).html(textoAcessibilidadeEnglishText);	
+				}
+				if(textoAcessibilidadeEnglish == '' || textoAcessibilidadeEnglish == null)
+				{
+					$(painelTextoSlide).html('Not Available in this Course.');
+				}
+			}
+			else
+			{
+				$(painelTextoSlide).html('Not Available in this Course.');
+			}
+		}
+		//SPANISH
+		else if(spanish != true)
+		{
+			if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
+			{
+				msgFinalTopico = 'Para continuar, seleccione la <br> siguiente tema en el campo de arriba.<br><br>¿Preguntas? Enviar un correo electrónico a <br> tutor.dominio@tr.com';
+			}
+			else
+			{
+				msgFinalTopico = 'Para continuar en la barra superior,<br>haga clic en el botón Siguiente.<br><br>¿Preguntas? Enviar un correo electrónico a <br> tutor.dominio@tr.com'
+			}
+			$('#soundBtn p').html('<p><i class="fa fa-volume-up fa-3x"></i><br>SONIDO</p>');
+			$('#painelBtn p').html('<p><i class="fa fa-list-alt fa-3x"></i><br>PANEL</p>');
+			$(infoTopicoText).html("SLIDE "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
+			var checkSpanishNotes = cp.model.data[slideNumber].accstr.split('  ')[2] != null;
+			if(checkSpanishNotes == true)
+			{
+				var textoAcessibilidadeSpanish = cp.model.data[slideNumber].accstr.split('  ')[2];
+				var textoAcessibilidadeSpanishTitle= textoAcessibilidadeSpanish.split('<title>')[0];
+				var textoAcessibilidadeSpanishText = textoAcessibilidadeSpanish.split('<title>')[1];
+				
+				$(painelTextoSlide).html(textoAcessibilidadeSpanish);	
+				if(cpInfoCurrentSlideLabel == "Painel Lateral!")				
+				{
+					$(painelTextoSlide).html(textoAcessibilidadeSpanishText);	
+				}
+			}
+			else
+			{
+				$(painelTextoSlide).html('No está disponible en este curso.');
+			}
+		}
+		//PORTUGUESE
+		else
+		{
+			if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
+			{
+				msgFinalTopico = 'Para continuar, selecione o <br>próximo tópico no campo acima.<br><br>Dúvidas? Envie um e-mail para<br>tutor.dominio@tr.com';
+			}
+			else
+			{
+				msgFinalTopico = 'Para continuar, na barra superior,<br>clique no botão Avançar.<br><br>Dúvidas? Envie um e-mail para<br>tutor.dominio@tr.com'
+			}
+			$('#soundBtn p').html('<p><i class="fa fa-volume-up fa-3x"></i><br>SOM</p>');
+			$('#painelBtn p').html('<p><i class="fa fa-list-alt fa-3x"></i><br>PAINEL</p>');
+			$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
+			if(cpInfoCurrentSlideLabel == "Painel Lateral!" || cpInfoCurrentSlideLabel == "Character!" )
+			{
+				$(painelTextoSlide).html(textoAcessibilidadePortugueseTitle).append(textoAcessibilidadePortuguese);
+			}
+			else
+			{
+				console.log()
+				if(document.documentElement.clientWidth < 700){
+					painelTextoSlide.className="painelNormalMobileTextoSlide";
+					painel.className="painelNormalMobile";
+					messageFailureToPanel();
+				}
+				else{
+					$(painelTextoSlide).html(cp.model.data[slideNumber].accstr);
+				}
+				
+			}
+			}
+		}
+		catch(e)
+		{
+	}
+}*/
 
 function topicLanguage(){
 	if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
@@ -2753,14 +2956,15 @@ function messageFailureToPanel(){
 
 function updateSlideElements(){
 	showPainelContent();
-	//mobileImages();
 	checkWidget();
 	successMessage();
 	topicType();
-	topicLanguage();
+	//topicLanguage();
 	changeToDeviceFont();
+	//console.log(cpInfoCurrentSlide,cpInfoSlideCount)
 	if(cpInfoCurrentSlide == cpInfoSlideCount)			
 	{
+		console.log('Final Slide')
 		finalMessage();
 		changeColors();
 		painel.className='moveDown painelNormal';
