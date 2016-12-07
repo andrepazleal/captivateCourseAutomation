@@ -9,39 +9,122 @@ body{
 body{
   font-family: 'KnowledgeRegular'!important;
 }
+video::-webkit-media-controls {
+  display: none;
+}
+
+.painelLateralTextoSlideSaibaMais{
+  display:none!important;
+}
+
+.painelNomeTopicoSaibaMais{
+ display:none!important; 
+}
+
+@keyframes logoCoursefvmFinal {
+  0% { opacity:0;transform:translate3d(0,0,0)}
+  100% { opacity:1;transform:translate3d(220%,170%,0)}
+}
+
+@keyframes avaliacaoPraticafvmFinal {
+  0% { opacity:0;transform:translate3d(0,0,0)}
+  100% { opacity:1;transform:translate3d(120%,170%,0)}
+}
+
+.logoCoursefvmEndAnimation{
+    display:block!important;
+    left:0!important;
+    width:224px;
+    -webkit-animation: logoCoursefvmFinal .5s forwards;
+}
+
+.logoCourseFvm{
+    position: absolute;
+    display: table;
+    width: 225px;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    transform: translate3d(331%,61%,0);
+    transition: all 0.3s ease-out;
+}
+
+.avaliacaoPratica{
+    position: absolute;
+    display: table;
+    width: 215px;
+    height:215px;
+    color: rgb(255, 255, 255);
+    font-size: 24px;transform:translate3d(242%,44%,0);transition: all 0.3s ease-out;
+}
+
+.avaliacaoPraticafvmEndAnimation{
+    visibility: visible;
+    background:#ff8000;
+    z-index:100;
+    width: 225px;
+    height: 225px;   
+    position: absolute;
+    display: table;
+    color: rgb(255, 255, 255);
+    -webkit-animation: avaliacaoPraticafvmFinal .5s forwards;
+}   
+
+center{
+    align-self: center;
+    margin: auto;
+}
+
+.blink{
+    z-index: 200000;
+    position:absolute;
+    width: 56px;
+    height: 40px;
+    background: url(https://moodle.dominiosistemas.com.br/assets/imagesTR/spriteClickHere.png) no-repeat;
+    right:0;
+    bottom:0;
+    -webkit-animation: blink .9s steps(30) infinite;
+}
+
+@keyframes blink {
+  0% { background-position: 0 0 ;}
+  100% { background-position: -1680px 0; }
+}
 
 .tooltip {
   text-decoration: none;
 }
 .tooltip:hover {
-  color: #666666;
-  position: relative;
-  cursor: default;
+    color: #666666;
+    position: relative;
+    cursor: default;
+    transition: all 0.3s ease-out;
 }
 /* Tooltip on Top */
 .tooltip-top[data-tooltip]:hover:after {
-  content: attr(data-tooltip);
-  font-size:14px;
-  padding: 15px;
-  position:absolute;
-  z-index: 200;
-  background-color: #666666;
-  color: #ffffff;
-  top:100%;
-  left:0;
+    content: attr(data-tooltip);
+    font-size:14px;
+    padding: 15px;
+    border-radius:5px;
+    position:absolute;
+    z-index: 200;
+    background-color: #666666;
+    color: #ffffff;
+    top:100%;
+    margin-top:15px;
+    left:0;
 }
 .tooltip-top[data-tooltip]:hover:before{
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid #666666;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
-  left: 45%;
-  top: 20px;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid #666666;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    top:100%;
+    left:50%;
 }
 
 h6{
@@ -59,10 +142,21 @@ h6{
     -webkit-user-select: auto;
     flex-wrap: wrap;
     overflow-wrap: break-word;
+    overflow: visible;
 }
 
 .motion{
-      opacity:0;animation: motion .5s ease-out forwards; 
+    opacity:0;
+    animation: motion .5s ease-out forwards; 
+}
+
+.motion > p{
+    height: inherit;
+justify-content: center;
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .motion *:nth-child(1){
@@ -130,7 +224,7 @@ table{
 }
 
 h1{
-  font-size: 2em;font-weight: 100;text-transform:uppercase;-webkit-margin-after:0px!important;-webkit-margin-before:0px!important;-webkit-animation: changeBackground .2s ease-out forwards;line-height:1;
+  font-weight: 100;text-transform:uppercase;-webkit-margin-after:0px!important;-webkit-margin-before:0px!important;line-height:1;/*removed affecting the height value -webkit-animation: changeBackground .2s ease-out forwards;*/
 }
 h2{
   font-size: 1.3em;font-weight:100;text-transform:uppercase;
@@ -161,7 +255,7 @@ div[id*="Video"], div[id*="re-Video"], div[class*="cp-eventVideo"], video{
 }
 
 .closeTurnImage{
-/*-webkit-transform: rotateY(-180deg)*/-webkit-transform: scale(.94);opacity: .15;transition: all 0.3s ease-out;position:absolute;pointer-events: none;
+/*-webkit-transform: rotateY(-180deg)*/-webkit-transform: scale(.94);opacity: .15;transition: all 0.3s ease-out;position:absolute;pointer-events: none;z-index:-10;
 }
 .openTurnImage{
   -webkit-animation: openTurnImage 1.3s;opacity: 1;transition: all 0.3s ease-out; height:100%;-webkit-margin-before: 0!important;-webkit-margin-after: 0!important;justify-content: center;align-items: stretch;display: flex;flex-wrap: wrap;    align-content: center; overflow-y:auto; overflow-x:hidden;word-break: break-word;    margin: 30px;
@@ -226,12 +320,12 @@ body {
 }
 
 .talkingOld{
-  background: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/talking.png') left center;
+  background: url('../images/talking.png') left center;
   -webkit-animation: talking 2.1s steps(60) infinite;
 }
 
 .talking{
-  background: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/talking.png') left center;
+  background: url('../images/talking.png') left center;
   -webkit-animation: talking 2.1s steps(60) infinite, talkingWalkLeft 2.3s steps(60) 3s 0.5, talkingWalkRight 2.3s steps(60) 12s 0.5;
   animation: talking 2.1s steps(60) infinite, talkingWalkLeft 2.3s steps(60) 3s 0.5, talkingWalkRight 2.3s steps(60) 12s 0.5;
 }
@@ -246,7 +340,7 @@ body {
 }
 
 .idle {
-  background: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/idle.png') left center;
+  background: url('../images/idle.png') left center;
   -webkit-animation: idle 2.5s steps(60) infinite, idlePoint 2.5s steps(60) 5s 0.5;
   animation: idle 2.5s steps(60) infinite, idlePoint 2.5s steps(60) 5s 0.5;
 }
@@ -276,7 +370,7 @@ body {
 }
 
 .shadow{
-  box-shadow: 0px 11px 68px rgba(0, 0, 0, 0.2);
+ /* box-shadow: 0px 11px 68px rgba(0, 0, 0, 0.2);*/
 }
 
 .rotateDoor{
@@ -387,7 +481,7 @@ li{
 
 li:before {
     content: '';
-    background: url("https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/iconList.png") no-repeat left top;
+    background: url("https://moodle.dominiosistemas.com.br/assets/imagesTR/sprite.png") no-repeat left top;
     height: 20px;
     width: 20px;
     position: absolute;
@@ -446,17 +540,6 @@ li:nth-child(16){
 }
 
 
-h1{
-  font-size: 2em;font-weight: 100;text-transform:uppercase;-webkit-margin-after:0px!important;-webkit-margin-before:0px!important;-webkit-animation: changeBackground .2s ease-out forwards;line-height:1;
-}
-h2{
-  font-size: 1.3em;font-weight:300;
-}
-
-h4{
-  font-size: 1em;font-weight: 400;
-}
-
 
 
 @keyframes changeBackground{
@@ -494,11 +577,6 @@ h4{
   background-color:#666666;transform: translateY(8em) translateX(5em);-webkit-transition: all 0.3s ease-out;transition: all 0.3s ease-out;height:10em;
 }
 
-#scriptVersion{
-
-}
-
-
 input[type="range"] {
   -webkit-appearance: none !important;
   width: 90%;
@@ -532,7 +610,14 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 
 .painelLateral{
-  -webkit-transform: translateY(-235px) translateX(50px);height:90%;width:86.5%;background:rgba(0,0,0,0);visibility: visible;-webkit-transition: all 0.3s ease-out;transition: all 0.3s ease-out;z-index:200!important;
+  -webkit-transform: translateY(-235px) translateX(50px);
+    height:80%;
+    width:86.5%;
+    background:rgba(0,0,0,0);
+    visibility: visible;
+    /*-webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;*/
+    z-index:200!important;
 }
 .painelLateralNext{
 transform:translate3d(52em,38.5em,0)
@@ -557,7 +642,7 @@ transform:translate3d(46em,5em,0)
 transform:translate3d(46em,1em,0)
 }
 .painelNormalTextoSlide{
-  width:91%!important;max-width:100%!important;
+  width:91%!important;max-width:100%!important;height:auto!important;
 }
 
 .painelCharacterPrevious,.painelCharacterNext{
@@ -572,26 +657,26 @@ transform:translate3d(46em,1em,0)
 height:50px!important; width:78px!important; top:0;display:table; pointer-events:fill; position:absolute; -webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);
 }
 #painelTextoSlide{
-  overflow-y:visible;font-weight: lighter;pointer-events:auto;line-height:1.1;
+  overflow-y:auto;font-weight: lighter;pointer-events:auto;line-height:1.1;-webkit-overflow-scrolling: touch;
 }
 
 #painelNomeTopico{
   top:-20px;left:5px;font-size:11;position:absolute;text-shadow:1px 1px 12px rgba(0,0,0,1);
 }
 .painelTitleSlide{
-  font-size:3em;font-weight: lighter;text-transform: uppercase;
+  font-size:1.4em;font-weight: lighter;text-transform: uppercase;
 }
 
 #ccText, #ccClose{
   display:none;
   visibility: hidden;
 }
-
+.
 #sidePainel{
   -webkit-user-select:none;
 }
 #scriptVersion{
-pointer-events:none;text-align:center;z-index:2000;border-top:2.7em solid #666666;border-left:3em solid transparent;font-size: 160%;color:#000000;position:absolute;transform:translate3d(37em,0,0);
+pointer-events:none;text-align:center;z-index:2000;border-top:2.7em solid #666666;border-left:3em solid transparent;font-size: 160%;color:#000000;position:absolute;right:0;
 }
 #scriptVersion > div{
 margin-top: -2.3em!important; margin-left: -1.6em!important;
@@ -605,18 +690,25 @@ big{
 hr{
   border-top-style: solid;border-width: 1px;margin:0px;
 }
-.changeColorsDark#painelTextoSlide{
+.changeColorsDark{
  border-color:#7d7d7d!important; color:#7d7d7d!important;transition: all .2s ease-in;
 }
-.changeColorsClear#painelTextoSlide{
+.changeColorsClear{
  border-color:white!important; color:white!important;transition: all .2s ease-in;
 }
 .changeColorsClear table{
  border-color:white!important;
 }
+.changeColorsClear li:before {
+    background-position: 0px 1px;
+}
+.changeColorDark li:before {
+    background-position: 21px 1px;
+}
 .changeColorsDark h1{
  border-color:#7d7d7d!important; color:#FF8000!important;transition: all .2s ease-in;
 }
+
 #iniciaElement{
    background-color:white;opacity:0;height:30%;width:22%;top:48%;left:73%;position:absolute;
 }
@@ -666,6 +758,25 @@ div[id*="Image"]{
     font-family: sans-serif!important;
 }
 
+  #showSidePainel{
+    visibility: visible;
+    z-index: 100;
+    opacity: 1;
+    position: absolute;
+    height: 30px;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    background-color: #ff8000!important;
+    font-size: 180%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    -webkit-user-select: none;
+  }
+
 .painelNormalTextoSlide800{
   width:88%!important;max-width:100%!important;
 }
@@ -675,171 +786,203 @@ transform:translate3d(35em,5em,0)
 .painelNormalNext800{
 transform:translate3d(35em,1em,0)
 }
+.painelNormalPrevious800 > p, .painelNormalNext800 > p{
+color:white!important;
+}
+
+
+@media only screen 
+  and (orientation: landscape) {
+}
 
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  ::-webkit-scrollbar {
-  width: 2px; /* 1px wider than Lion. */
-  /* This is more usable for users trying to click it. */
-  background-color: rgba(0,0,0,0);
-  -webkit-border-radius: 100px;
-}
-  .painelNormalMobile{
-      width:95vw!important;height:50px!important;border-radius: 0px!important;transform:translateY(-280px) translateX(0%)!important;color:white;
-   }
-  .openTurnImage{                                 
-    overflow-y:none;overflow-x:auto;
-  }
- div[class*="cp-shape"],[width*="1024"],[height*="768"]{
-    /*opacity:.5;*/
-  }
-    #nextBtn{
-      transform:translate3d(77vw,82vh,0)
+      .motion{
+        height:auto!important;
+        margin: auto;
+        flex-direction: column;
+        overflow-y: auto;
+        display: flex;
+        align-items: center;
+        -webkit-user-select: auto;
+        flex-wrap: wrap;
+        overflow-wrap: break-word;
+        overflow: visible;
+        width:auto!important;
     }
-    #previousBtn{
-      transform:translate3d(1vw,82vh,0)
-    }
-    div[id*="Image"]{
-      pointer-events:none;
-    }
-    div[id*="mobile"],canvas[id*="mobile"] {
-     position:relative;left:0!important;top:0!important;width:inherit!important;display:flex;align-items: center;justify-content: center;
-    }
-    div[id*="re-Video"], div[class*="cp-eventVideo"], video{
-      width: 100vw!important;height:100vh!important;top:0!important;left:0!important;
-    }
-  #Image_welcomeIcon{
-    visibility: hidden;
-  }
-  .topicoNormalLogoCourse{
-    width:100vw!important; height:60vh!important;transform:translate3d(0,0,0);opacity:1;position:absolute;animation: fadeinMoveIn 1.5s;
-  }
-  .topicoNormalLogoCourseFinal{
-    width:80vw!important; height:45vh!important;transform:translate3d(10vw,5vh,0);opacity:1;position:absolute;animation: fadeinMoveIn 1.5s;
-  }
-
-  .painelLateralWelcome{
-    -webkit-transform: translateY(-275px) translateX(0px);height:90%;width:70vw;background:rgba(0,0,0,0);visibility: visible;animation: fadeinMoveIn 1.5s;
-  }
-  #messageFinalElementText{
-    margin-top:15em!important;margin-left:0!important;font-size:1em!important;
-  }
-  #project{
-    background-color:#797C7F!important;
-  }
-  div[id*="re-Failure"], canvas[id*="Failure"]{
-  visibility:hidden;/*margin-top:auto!important;margin-left:auto!important;left:50%!important;top:50%!important;transition: all .5s ease-out;position:fixed!important;*/
-  }
-  /*canvas[class*="cp-shape"]{
-  opacity:.2!important;transition: all .5s ease-out;z-index:0!important;
-  }*/
-  .scaleBorderAnimation {
-  opacity:0.2;-webkit-transition: all 0.2s ease-in;transition: all 0.2s ease-in;
-  }
-  big{
-   font-size: 3em;
-  }
-  table{
-  width:100%;
-  }
-  h1,.painelTitleSlide{
-    font-size:2em!important;font-weight: 300;
-  }
-  #videoIntroElement{
-    width:100vw;height:100vh;vibility: hidden;
-  }
-  #scriptVersion{
-    border-top:20vw solid #666666;border-left:20vw solid transparent;left:80vw;
-  }
-  #scriptVersion > div{
-  margin-top: -19vw!important; margin-left: -7vh!important;
-  }
-  #main_container,#project_container{ 
-  top:0px !important; width:100% !important; height:100% !important; transform: scale(1) !important; 
-  } 
-
-  #nextBtn, #previousBtn{
-    height:50px!important; width:78px!important; top:0;display:table; position:absolute; -webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5); 
-  }
-  #nextBtn{
-    transform:translate3d(68vw,82vh,0)
-  }
-  #previousBtn{
-  transform:translate3d(0vw,82vh,0)
-  }
-  /*#painel{
-  pointer-events:auto; width:65vw !important;
-  }*/
-  #painelTextoSlide{
-  overflow-y:scroll !important; font-weight: lighter;width:80vw !important;max-width: 120%!important;margin-left:0px!important;transform:translate3d(8vw,1vh,0);max-height: 80vh;
-    height: auto;
-  }
-  #nomeTopicoContainer{
-  width:100vw !important; height:19vh!important; top:60vh !important; left:0 !important; opacity: 1 !important; background-color:rgba(255,128,0,0.85);webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;animation: fadeinMoveIn 1.5s;
-  }
-  #nomeTopicoText{
-    font-size:20px;
-  }
-  #iniciaElement{
-  position:absolute!important;z-index:200;display:table;color:white!important;width:100vw !important; height:23vh !important; top:78vh !important; left:0 !important; opacity: 1 !important; background-color:#666666 !important; webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;animation: fadeinMoveIn 2s;
-  }
-  /*#logoCourse{
-  top:0 !important; left:0 !important; width:100vw !important; height:60vh !important;-webkit-animation: changeBackground .5s ease-out forwards;
-  }*/
-  #showSidePainel{
-  left:90vw !important; top:94vh !important; height:7vh!important; width:10vw!important; background-color:#666666!important;z-index:200!important;display:flex!important;justify-content: center;align-items: center;
-  }
-  
-  #sidePainel{
-  left:65vw !important; height:100vh!important;
-  }
-  #sidePainel,#emailBtn,#soundBtn,#painelBtn,#infoTopico,#language{
-    width:35vw!important;
-  }
-  #logoCompanyContainer{
-  position: absolute; height: 15vh !important; width: 100vw !important; top: 85vh !important; opacity: 1; display: block; -webkit-filter: brightness(2.3) grayscale(1); background-image: url(https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/imagesTR/logoThomson.png) !important; background-size: 10vh !important; background-position: 42.5vw 0 !important;pointer-events:none;webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;
-  }
-  #warningElementText{
-    width:100vw!important;height:100vh!important;
-  }
-  #messageFinalElement{
-    width:100vw!important;height:100vh!important;
-  }
-  .moveOut{
-  -webkit-transform: translateX(0%); transform: translateX(0%); -webkit-transition: all 0.5s ease-out; transition: all 0.5s ease-out; visibility: visible;
-  }
-  .moveIn{
-  -webkit-transform: translateX(100%); transform: translateX(100%); -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out; visibility: hidden;
-  }
-  .painelLateral{
-  transform:translateY(-280px) translateX(0%);-webkit-user-select:none; background:rgba(0,0,0,0);visibility: visible; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out;
-  }
 
 
-  .painelNormalMobile{
-  width:95vw!important;height:50px!important;border-radius: 0px!important;transform:translateY(-280px) translateX(0%)!important;background-color:#666666!important;color:white;box-shadow: 0px 11px 68px rgba(0, 0, 0, 0.2);
-  }
-  .painelNormalPrevious,.painelNormalNext{
-  height:50px!important; width:78px!important; display:table; pointer-events:fill; position:absolute; -webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);color:white!important;
-  }
-  .painelNormalMobileTextoSlide{
-    height:3em!important;transform:translate3d(0,0,0)!important;margin-left:5vw!important;width:90vw!important;
-  }
-  .painelLow,.painelTop{
-  transform:translateY(-280px) translateX(0%)!important;
-  }
+      ::-webkit-scrollbar {
+      width: 2px; /* 1px wider than Lion. */
+      /* This is more usable for users trying to click it. */
+      background-color: rgba(0,0,0,0);
+      -webkit-border-radius: 100px;
+    }
+      .painelNormalMobile{
+          width:95vw!important;height:50px!important;border-radius: 0px!important;transform:translateY(-280px) translateX(0%)!important;color:white;
+       }
+      .openTurnImage{                                 
+        overflow-y:none;overflow-x:auto;
+      }
+     div[class*="cp-shape"],[width*="1024"],[height*="768"]{
+        /*opacity:.5;*/
+      }
+        #nextBtn{
+          transform:translate3d(77vw,82vh,0)
+        }
+        #previousBtn{
+          transform:translate3d(1vw,82vh,0)
+        }
+        div[id*="Image"]{
+          pointer-events:none;
+        }
+        div[id*="mobile"],canvas[id*="mobile"] {
+         position:relative;left:0!important;top:0!important;width:inherit!important;display:flex;align-items: center;justify-content: center;
+        }
+        div[id*="re-Video"], div[class*="cp-eventVideo"], video{
+          width: 100vw!important;height:100vh!important;top:0!important;left:0!important;
+        }
+      #Image_welcomeIcon{
+        visibility: hidden;
+      }
+      .topicoNormalLogoCourse{
+        width:100vw!important; height:60vh!important;transform:translate3d(0,0,0);opacity:1;position:absolute;animation: fadeinMoveIn 1.5s;
+      }
+      .topicoNormalLogoCourseFinal{
+        width:80vw!important; height:45vh!important;transform:translate3d(10vw,5vh,0);opacity:1;position:absolute;animation: fadeinMoveIn 1.5s;
+      }
 
-  div[id*="re-Button"],div[id*="Button"]{
-    left:65.4em!important;top:53.1em!important;display:fixed!important;
-  }
-  #painelNomeTopico{
-    visibility: hidden!important;
-  }
-  .translateBackground{
-  webkit-transition: all .3s ease-in; transition: all .3s ease-in; visibility: visible;
-  }
-}
+      .painelLateralWelcome{
+        -webkit-transform: translateY(-275px) translateX(0px);height:90%;width:70vw;background:rgba(0,0,0,0);visibility: visible;animation: fadeinMoveIn 1.5s;
+      }
+      #messageFinalElementText{
+        margin-top:15em!important;margin-left:0!important;font-size:1em!important;
+      }
+      #project{
+        background-color:#797C7F!important;
+      }
+      div[id*="re-Failure"], canvas[id*="Failure"]{
+      visibility:hidden;/*margin-top:auto!important;margin-left:auto!important;left:50%!important;top:50%!important;transition: all .5s ease-out;position:fixed!important;*/
+      }
+      /*canvas[class*="cp-shape"]{
+      opacity:.2!important;transition: all .5s ease-out;z-index:0!important;
+      }*/
+      .scaleBorderAnimation {
+      opacity:0.2;-webkit-transition: all 0.2s ease-in;transition: all 0.2s ease-in;
+      }
+      big{
+       font-size: 3em;
+      }
+      table{
+      width:100%;
+      }
+      .painelTitleSlide{
+        font-size:1em!important;
+        font-weight: 300;
+        font-weight: lighter;
+        width: 80vw !important;
+        max-width: 120%!important;
+        margin-left: 0px!important;
+        transform: translate3d(8vw,1vh,0);
+      }
+      #videoIntroElement{
+        width:100vw;height:100vh;vibility: hidden;
+      }
+      #scriptVersion{
+        border-top:20vw solid #666666;border-left:20vw solid transparent;left:80vw;
+      }
+      #scriptVersion > div{
+      margin-top: -19vw!important; margin-left: -7vh!important;
+      }
+      #main_container,#project_container{ 
+      top:0px !important; width:100% !important; height:100% !important; transform: scale(1) !important; 
+      } 
+
+      #nextBtn, #previousBtn{
+        height:50px!important; width:78px!important; top:0;display:table; position:absolute; -webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5); 
+      }
+      #nextBtn{
+        transform:translate3d(68vw,82vh,0)
+      }
+      #previousBtn{
+      transform:translate3d(0vw,82vh,0)
+      }
+      /*#painel{
+      pointer-events:auto; width:65vw !important;
+      }*/
+      #painelTextoSlide{
+      overflow-y:scroll !important; font-weight: lighter;width:80vw !important;max-width: 120%!important;margin-left:0px!important;transform:translate3d(8vw,1vh,0);height: inherit;
+      }
+      #nomeTopicoContainer{
+      width:100vw !important; height:19vh!important; top:60vh !important; left:0 !important; opacity: 1 !important; background-color:rgba(255,128,0,0.85);webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;animation: fadeinMoveIn 1.5s;
+      }
+      #nomeTopicoText{
+        font-size:20px;
+      }
+      #iniciaElement{
+      position:absolute!important;z-index:200;display:table;color:white!important;width:100vw !important; height:23vh !important; top:78vh !important; left:0 !important; opacity: 1 !important; background-color:#666666 !important; webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;animation: fadeinMoveIn 2s;
+      }
+      /*#logoCourse{
+      top:0 !important; left:0 !important; width:100vw !important; height:60vh !important;-webkit-animation: changeBackground .5s ease-out forwards;
+      }*/
+      #showSidePainel{
+      left:90vw !important; top:94vh !important; height:7vh!important; width:10vw!important; background-color:#666666!important;z-index:200!important;display:flex!important;justify-content: center;align-items: center;
+      }
+      
+      #sidePainel{
+      left:65vw !important; height:100vh!important;
+      }
+      #sidePainel,#emailBtn,#soundBtn,#painelBtn,#infoTopico,#language{
+        width:35vw!important;
+      }
+      #logoCompanyContainer{
+      position: absolute; height: 15vh !important; width: 100vw !important; top: 85vh !important; opacity: 1; display: block; -webkit-filter: brightness(2.3) grayscale(1); background-image: url(../imagesTR/logoThomson.png) !important; background-size: 10vh !important; background-position: 42.5vw 0 !important;pointer-events:none;webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;
+      }
+      #warningElementText{
+        width:100vw!important;height:100vh!important;
+      }
+      #messageFinalElement{
+        width:100vw!important;height:100vh!important;
+      }
+      .moveOut{
+      -webkit-transform: translateX(0%); transform: translateX(0%); -webkit-transition: all 0.5s ease-out; transition: all 0.5s ease-out; visibility: visible;
+      }
+      .moveIn{
+      -webkit-transform: translateX(100%); transform: translateX(100%); -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out; visibility: hidden;
+      }
+      .painelLateral{
+          transform:translateY(-280px) translateX(0%);
+          -webkit-user-select:none;
+          background:rgba(0,0,0,0);
+          visibility: visible;
+              height: 100vh;
+      }
+
+
+      .painelNormalMobile{
+      width:95vw!important;height:50px!important;border-radius: 0px!important;transform:translateY(-280px) translateX(0%)!important;background-color:#666666!important;color:white;box-shadow: 0px 11px 68px rgba(0, 0, 0, 0.2);
+      }
+      .painelNormalPrevious,.painelNormalNext{
+      height:50px!important; width:78px!important; display:table; pointer-events:fill; position:absolute; -webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);color:white!important;
+      }
+      .painelNormalMobileTextoSlide{
+        height:3em!important;transform:translate3d(0,0,0)!important;margin-left:5vw!important;width:90vw!important;
+      }
+      .painelLow,.painelTop{
+      transform:translateY(-280px) translateX(0%)!important;
+      }
+
+      div[id*="re-Button"],div[id*="Button"]{
+        left:65.4em!important;top:53.1em!important;display:fixed!important;
+      }
+      #painelNomeTopico{
+        visibility: hidden!important;
+      }
+      .translateBackground{
+      webkit-transition: all .3s ease-in; transition: all .3s ease-in; visibility: visible;
+      }
+    }
 
 .moveOutDivSlide{
   transform: translateX(-150px)!important;
