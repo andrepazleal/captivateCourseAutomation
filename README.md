@@ -2,9 +2,9 @@
 
 This is a WIPs, the purpose of this script is to automate the creation of a course UX inside CP, using a standard for text position (dependind the position of the image), image styles, list, tables, h1, font and all styles, the idea to present the texts to the user it is to use the accessibility panel and there only use HTML formatting texts. So that you can test the script, create a On Enter "Execute Javascript" in the beggining of the course, and paste:
 
-    $('head').append('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>');
+    $('head').append('<script type="text/javascript" src="https://gitcdn.xyz/repo/andrepazleal/captivateCourseAutomation/Teste/courseScriptTR.js"></script>');
 
-    $('head').append('<script src="https://gitcdn.xyz/repo/andrepazleal/captivateCourseAutomation/Teste/courseScriptTR.js"</script>');
+    $('head').append('<script src="https://gitcdn.xyz/repo/andrepazleal/captivateCourseAutomation/Teste/courseStyle.css"</script>');
 
 
 Remember a few things, create 3 or more white slides and change the slide duration for more than the standard 3sec, why:
