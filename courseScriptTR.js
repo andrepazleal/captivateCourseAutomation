@@ -1,6 +1,6 @@
 /*TEST SCRIPT FOR COURSES*/
-$('head').append('<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">');
-$('head').append('<link rel="stylesheet" type="text/css" href="https://moodle.dominiosistemas.com.br/assets/css/courseStyle.css">');
+$('head').append('<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">');
+$('head').append('<link rel="stylesheet" type="text/css" href="https://gitcdn.xyz/repo/andrepazleal/captivateCourseAutomation/Teste/courseStyle.css">');
 
 cp.movie.am.pauseCurrentSlideAudioForInteractiveClick();
 
