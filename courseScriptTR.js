@@ -2090,7 +2090,7 @@ function createSidePainel(){
 		
 	}
 	else{
-		$(infoTopico).append('<br><div style="position:absolute; left:10%;"><input type="range" min="1" max="'+(cpInfoSlideCount-2)+'" onchange="cpCmndGotoSlideAndResume=this.value" onKeyPress="" required="" autocomplete="off" placeholder="Digite a tela"></div>');
+		$(infoTopico).append('<br><div style="width:100%;"><input type="range" min="1" max="'+(cpInfoSlideCount-2)+'" onchange="cpCmndGotoSlideAndResume=this.value" onKeyPress="" required="" autocomplete="off" placeholder="Digite a tela"></div>');
 	}
 	var language = document.createElement("div");
 	language.setAttribute("id", "language");
