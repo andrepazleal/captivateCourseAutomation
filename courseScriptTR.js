@@ -2011,7 +2011,7 @@ function createSidePainel(){
 	  	else 
 	  	{
 		    painel.className='moveIn'
-		    //positionPainel();	
+		    positionPainel();	
 			$(painel).css("visibility","visible");
 			$(painel).css('display','block');
 			$("#painelBtn p").css('opacity',1);
@@ -2344,7 +2344,7 @@ function mostrarOcultar(parameter){
 			painel.className='painelLateral';
 		}
 		else{
-			//positionPainel();	
+			positionPainel();	
 		}
 		parameter.style.visibility='hidden';
 		parameter.className='mostrarOcultarInativo'
@@ -2630,7 +2630,7 @@ function character(){
 		}
 		$(logoCompanyContainer).css('display',"none");
 		$(logoCompanyContainer).css('visibility',"hidden");
-		//positionPainel();	
+		positionPainel();	
 		translateBackground();
 
 	}
