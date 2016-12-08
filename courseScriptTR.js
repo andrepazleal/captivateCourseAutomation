@@ -175,9 +175,9 @@ function companyName(){
 	{
 		companyName = 'logoMastersaf.svg';
 	}
-	if(companyName[0] == 'Fiscosoft')
+	if(companyName[0] == 'Simples')
 	{
-		companyName = 'fiscosoftLogo.png';
+		companyName = 'https://gitcdn.link/repo/andrepazleal/captivateCourseAutomation/Teste/logos/simplesVeiculo.svg';
 	}
 }
 
@@ -427,7 +427,7 @@ function createElements(){
 	//$(logoCompanyContainer).css('width','100%');
 	//$(logoCompanyContainer).css('top','88%');
 	//$(logoCompanyContainer).css('opacity',0);
-	$(logoCompanyContainer).css('background-image','url(https://moodle.dominiosistemas.com.br/assets/imagesTR/'+companyName+')');
+	$(logoCompanyContainer).css('background-image','url('+companyName+')');
 	//$(logoCompanyContainer).css('background-repeat','no-repeat');
 	//$(logoCompanyContainer).css('background-position','50% 0');
 	//$(logoCompanyContainer).css('background-size','35%');
