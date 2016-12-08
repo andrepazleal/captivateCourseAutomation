@@ -1,14 +1,14 @@
  /*PRODUCTION CSS FOR COURSES*/
 
-@import url(https://fonts.googleapis.com/css?family=Questrial);
+/*@import url(https://fonts.googleapis.com/css?family=Questrial);
 
 body{
   font-family: 'Questrial', sans-serif;
-}
-/*@import url(https://assets.gcs.thomsonreuters.com/fonts?variants=regular|bold);
+}*/
+@import url(https://assets.gcs.thomsonreuters.com/fonts?variants=regular|bold);
 body{
   font-family: 'KnowledgeRegular'!important;
-}*/
+}
 video::-webkit-media-controls {
   display: none;
 }
@@ -565,7 +565,22 @@ li:nth-child(16){
 }
 
 .painelTop{
-  background-color:#666666;transform: translateY(-16em) translateX(6em);-webkit-transition: all 0.3s ease-out;transition: all 0.3s ease-out;height:10em;
+  background-color:#666666;
+  /* transform: translateY(-16em) translateX(6em); */
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  height:10em;
+  background-color: #666666;
+  /* transform: translateY(18.5em) translateX(6em); */
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  height: 8em;
+  position: fixed;
+  /* bottom: 0; */
+  top: 0;
+  right: 0;
+  width: 50%;
+  padding: 15px;
 }
 .painelLow{
   background-color:#666666;
