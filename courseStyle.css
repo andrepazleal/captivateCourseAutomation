@@ -644,16 +644,17 @@ input[type="range"]:hover {
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
-  width: 20px;
-  height: 20px;
-  background-color: #FFFFFF;
+  width: 40px;
+  height: 40px;
+  background-color: #ea5050;
   border-radius: 30px;
   border-color:#FFFFFF;
   border-width: 3px;
   transition: all 0.5s ease;
 }
 input[type="range"]::-webkit-slider-thumb:hover {
-  background-color: #FF8000;
+  background-color: #FFFFFF;
+  border-color:#ea5050;
 }
 input[type="range"]::-webkit-slider-thumb:active {
   box-shadow: 0px 0px 1px #FF8002;
