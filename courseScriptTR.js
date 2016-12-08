@@ -1,7 +1,7 @@
 /*TEST SCRIPT FOR COURSES*/
 $('head').append('<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">');
 $('head').append('<link rel="stylesheet" type="text/css" href="https://gitcdn.link/repo/andrepazleal/captivateCourseAutomation/Teste/courseStyle.css">');
-
+$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />');
 cp.movie.am.pauseCurrentSlideAudioForInteractiveClick();
 
 var observer = new MutationObserver(function(mutations, observer) {
