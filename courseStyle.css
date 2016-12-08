@@ -596,10 +596,10 @@ li:nth-child(16){
 
 input[type="range"] {
   -webkit-appearance: none !important;
-  width: 90%;
+  width: inherit;
   height: 3px;
   background-color: #666666;
-  border: 1px solid #FF8001;
+  border: 1px solid #ea5050;
   border-radius: 10px;
   margin: auto;
   transition: all 0.3s ease;
@@ -670,7 +670,7 @@ transform:translate3d(-2em,29em,0)
   /* padding: 15px; */
   pointer-events:none;
 }
-#nextBtn, #previousBtn{/* height:50px!important; *//* width:78px!important; */top: 370px;/* right: 5%; *//* display:table; */pointer-events:fill;position: fixed;-webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);}
+#nextBtn, #previousBtn{/* height:50px!important; *//* width:78px!important; */top: 10em;/* right: 5%; */font-size: xx-large;/* display:table; */pointer-events:fill;position: fixed;-webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);}
 #painelTextoSlide{
   overflow-y:auto;font-weight: lighter;pointer-events:auto;line-height:1.1;-webkit-overflow-scrolling: touch;
 }
@@ -728,7 +728,18 @@ hr{
    background-color:white;opacity:0;height:30%;width:22%;top:48%;left:73%;position:absolute;
 }
 #logoCompanyContainer{
-  position: absolute; height: 100%; width:100%; top:88%; opacity: 0; display: block;background-size:30%!important; background-position: 50% 0 !important;pointer-events:none;webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;background-repeat:no-repeat!important;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top:88%;
+  opacity: 0;
+  display: block;
+  background-size:30%!important;
+  background-position: 50% 0 !important;
+  pointer-events:none;
+  webkit-transition: opacity .5s ease-out;
+  transition: opacity .5s ease-out;
+  background-repeat:no-repeat!important;
 }
 .welcomeLogoCourse{
   height:35.5%!important;width:25%!important;transform:translate3d(260%,135%,0);position:absolute;animation:fadeinMoveIn 1s;
@@ -813,7 +824,7 @@ color:white!important;
 }
 
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (max-device-width: 480px) and (min-device-width: 320px) {
       .motion{
         height:auto!important;
         margin: auto;
@@ -957,7 +968,7 @@ color:white!important;
       left:65vw !important; height:100vh!important;
       }
       #sidePainel,#emailBtn,#soundBtn,#painelBtn,#infoTopico,#language{
-        width:35vw!important;
+        width: 100vw;
       }
       #logoCompanyContainer{
       position: absolute; height: 15vh !important; width: 100vw !important; top: 85vh !important; opacity: 1; display: block; -webkit-filter: brightness(2.3) grayscale(1); background-image: url(../imagesTR/logoThomson.png) !important; background-size: 10vh !important; background-position: 42.5vw 0 !important;pointer-events:none;webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;
