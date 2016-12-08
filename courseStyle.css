@@ -783,7 +783,7 @@ hr{
   display:table-cell;margin:10px;
 }
 div[id*="Image"]{
-  /*removed on Conceitos do Esocial user need to click on the envelope of the topic "Envio das InformaÃ§Ãµes"
+  /*removed on Conceitos do Esocial user need to click on the envelope of the topic "Envio das InformaÃƒÂ§ÃƒÂµes"
   /*pointer-events:none;*/
 }
 #logoCourse{
@@ -1585,7 +1585,7 @@ color:white!important;
       animation:fadeinMoveIn 1s;  }  .flexBox{
       display:table-cell;
       margin:10px;  }
-      div[id*="Image"]{    /*removed on Conceitos do Esocial user need to click on the envelope of the topic "Envio das InformaÃ§Ãµes"    /*pointer-events:none;*/;}  #logoCourse{
+      div[id*="Image"]{    /*removed on Conceitos do Esocial user need to click on the envelope of the topic "Envio das InformaÃƒÂ§ÃƒÂµes"    /*pointer-events:none;*/;}  #logoCourse{
       position:absolute;
       z-index:2;  }  .topicoNormalLogoCourse{
       width:45% !important;
