@@ -689,8 +689,8 @@ transform:translate3d(-2em,29em,0)
   /* border-radius: 5px; */
   color:white;
 }
-.painelNormalPrevious{/* transform:translate3d(46em,5em,0) */left: 5%;}
-.painelNormalNext{/* transform:translate3d(46em,1em,0) */<webicon icon="idea"></webicon>  <span webicon="s: key" alt="Key"></span>  <div data-webicon="full-trash" data-alt="Full Trash"></div>;right: 5%;}
+.painelNormalPrevious{left: 0; z-index:2}
+.painelNormalNext{right: 0;}
 .painelNormalTextoSlide{
   width:91%!important;max-width:100%!important;height:auto!important;
 }
