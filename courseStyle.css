@@ -672,16 +672,18 @@ input[type="range"]::-webkit-slider-thumb:active {
     z-index:200!important;
 }
 .painelLateralNext{
-transform:translate3d(52em,38.5em,0)
+  right:0;
+//transform:translate3d(52em,38.5em,0)
 }
 .painelLateralPrevious{
-transform:translate3d(0,620px,0)
+  left:0;
+//transform:translate3d(0,620px,0)
 }
 .painelLateralNext800{
-transform:translate3d(40em,29em,0)
+//transform:translate3d(40em,29em,0)
 }
 .painelLateralPrevious800{
-transform:translate3d(-2em,29em,0)
+//transform:translate3d(-2em,29em,0)
 }
 
 .painelNormal{
@@ -705,7 +707,7 @@ transform:translate3d(-2em,29em,0)
   /* padding: 15px; */
   pointer-events:none;
 }
-#nextBtn, #previousBtn{/* height:50px!important; *//* width:78px!important; */top: 10em;/* right: 5%; */font-size: xx-large;/* display:table; */pointer-events:fill;position: fixed;-webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);}
+#nextBtn, #previousBtn{/* height:50px!important; *//* width:78px!important; */top: 10em;/* right: 5%; */font-size: xx-large;/* display:table; */pointer-events:fill;position: absolute;-webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);z-index:2;}
 #painelTextoSlide{
   overflow-y:auto;font-weight: lighter;pointer-events:auto;line-height:1.1;-webkit-overflow-scrolling: touch;
 }
@@ -783,7 +785,7 @@ hr{
   display:table-cell;margin:10px;
 }
 div[id*="Image"]{
-  /*removed on Conceitos do Esocial user need to click on the envelope of the topic "Envio das InformaÃƒÂ§ÃƒÂµes"
+  /*removed on Conceitos do Esocial user need to click on the envelope of the topic "Envio das InformaÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Âµes"
   /*pointer-events:none;*/
 }
 #logoCourse{
@@ -1585,7 +1587,7 @@ color:white!important;
       animation:fadeinMoveIn 1s;  }  .flexBox{
       display:table-cell;
       margin:10px;  }
-      div[id*="Image"]{    /*removed on Conceitos do Esocial user need to click on the envelope of the topic "Envio das InformaÃƒÂ§ÃƒÂµes"    /*pointer-events:none;*/;}  #logoCourse{
+      div[id*="Image"]{    /*removed on Conceitos do Esocial user need to click on the envelope of the topic "Envio das InformaÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Âµes"    /*pointer-events:none;*/;}  #logoCourse{
       position:absolute;
       z-index:2;  }  .topicoNormalLogoCourse{
       width:45% !important;
