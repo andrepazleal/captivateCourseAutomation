@@ -9,7 +9,7 @@ body{
     visibility: hidden;
     /* top: 60%; */
     bottom: 0;
-    position: fixed;
+    position: absolute;
     z-index: 2;
     /* left: 0px; */
     visibility: visible;
