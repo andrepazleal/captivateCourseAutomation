@@ -2074,6 +2074,7 @@ function createSidePainel(){
 	$(infoTopico).css("color","#ffffff");
 	$(infoTopico).css("display","table");
 	(sidePainel).appendChild(infoTopico)
+	project.parentNode.insertBefore(infoTopico, project.nextSibling);
 
 	var infoTopicoText = document.createElement("p");
 	infoTopicoText.setAttribute("id", "infoTopicoText");
