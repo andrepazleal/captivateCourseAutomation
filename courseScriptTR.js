@@ -1,4 +1,5 @@
 /*TEST SCRIPT FOR COURSES*/
+console.log('andre');
 $('head').append('<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">');
 $('head').append('<link rel="stylesheet" type="text/css" href="https://gitcdn.xyz/repo/andrepazleal/captivateCourseAutomation/Teste/courseStyle.css">');
 
