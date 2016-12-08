@@ -2065,26 +2065,26 @@ function createSidePainel(){
 	var infoTopico = document.createElement("div");
 	infoTopico.setAttribute("id", "infoTopico");
 	$(infoTopico).css("id",'infoTopico');
-	$(infoTopico).css("height",'20%');
-	$(infoTopico).css("width",150);
-	$(infoTopico).css("top",'60%');
-	$(infoTopico).css("left",0);
-	$(infoTopico).css("background-color",'#FF8300');
-	$(infoTopico).css("position","absolute");
-	$(infoTopico).css("color","#ffffff");
-	$(infoTopico).css("display","table");
-	(sidePainel).appendChild(infoTopico)
+	//$(infoTopico).css("height",'20%');
+	//$(infoTopico).css("width",150);
+	//$(infoTopico).css("top",'60%');
+	//$(infoTopico).css("left",0);
+	//$(infoTopico).css("background-color",'#FF8300');
+	//$(infoTopico).css("position","absolute");
+	//$(infoTopico).css("color","#ffffff");
+	//$(infoTopico).css("display","table");
+	//(sidePainel).appendChild(infoTopico)*/
 	project.parentNode.insertBefore(infoTopico, project.nextSibling);
 
 	var infoTopicoText = document.createElement("p");
 	infoTopicoText.setAttribute("id", "infoTopicoText");
-	$(infoTopicoText).css("font-size",11);
+	//$(infoTopicoText).css("font-size",11);
 	//$(infoTopicoText).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
-	$(infoTopicoText).css('display',"table-cell");
-	$(infoTopicoText).css('text-align',"center");
-	$(infoTopicoText).css('vertical-align',"middle");
+	//$(infoTopicoText).css('display',"table-cell");
+	//$(infoTopicoText).css('text-align',"center");
+	//$(infoTopicoText).css('vertical-align',"middle");
 	(infoTopico).appendChild(infoTopicoText)
-	$(infoTopicoText).css('pointer-events','none');
+	//$(infoTopicoText).css('pointer-events','none');
 	//added
 	if(window.location.host=='dominiosistemas.webaula.com.br' || window.location.host=='moodle.dominiosistemas.com.br'){
 		
