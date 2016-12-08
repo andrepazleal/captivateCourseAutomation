@@ -1,14 +1,14 @@
  /*PRODUCTION CSS FOR COURSES*/
 
-/*@import url(https://fonts.googleapis.com/css?family=Questrial);
+@import url(https://fonts.googleapis.com/css?family=Questrial);
 
 body{
   font-family: 'Questrial', sans-serif;
-}*/
-@import url(https://assets.gcs.thomsonreuters.com/fonts?variants=regular|bold);
+}
+/*@import url(https://assets.gcs.thomsonreuters.com/fonts?variants=regular|bold);
 body{
   font-family: 'KnowledgeRegular'!important;
-}
+}*/
 video::-webkit-media-controls {
   display: none;
 }
