@@ -1853,7 +1853,8 @@ function createPainel(){
 	$(nextBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="fa fa-angle-right fa-5x"></i></p>');
 	//$(nextBtn).css('visibility','hidden');
 	//$(nextBtn).css("pointer-events",'fill');
-	painel.appendChild(nextBtn);
+	//painel.appendChild(nextBtn);
+	infoTopico.parentNode.insertBefore(nextBtn, infoTopico.nextSibling);
 	$(nextBtn).bind(changeClick,function(e){
 		checkInteractionNext();
 	});
@@ -1871,7 +1872,8 @@ function createPainel(){
 	$(previousBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="fa fa-angle-left fa-5x"></i></p>');
 	//$(previousBtn).css('visibility','hidden');
 	//$(previousBtn).css("pointer-events",'fill');
-	painel.appendChild(previousBtn);
+	//painel.appendChild(previousBtn);
+	infoTopico.parentNode.insertBefore(previousBtn, infoTopico.nextSibling);
 	$(previousBtn).bind(changeClick,function(e){
 		checkInteractionPrevious();
 	})
