@@ -260,6 +260,13 @@ blockquote{
   font-weight:100!important;line-height:15px!important;display:table;-webkit-margin-start: 20px!important;-webkit-margin-end: 20px!important;
 }
 
+
+div[id*="re-Click"],div[id*="re-Highlight"]{
+    border-radius: 10px;
+    border: 3px solid #ea5050;
+    background-color: rgba(234, 80, 80,.5);
+}
+
 div[id*="Video"], div[id*="re-Video"], div[class*="cp-eventVideo"], video{
       pointer-events:none;
 }
