@@ -559,7 +559,7 @@ function createElements(){
 	$(messageFinalElementIcon).css("font-size",16);
 	//$(messageFinalElementIcon).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
 	$(messageFinalElementIcon).css("color","#ffffff");
-	$(messageFinalElementIcon).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-angle-left fa-3x"></i></p>');
+	$(messageFinalElementIcon).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="pe-7s-angle-left"></i></p>');
 }	
 
 
@@ -1851,7 +1851,7 @@ function createPainel(){
 	//$(nextBtn).css("font-size",11);
 	//$(nextBtn).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
 	//$(nextBtn).css("color","rgba(0,0,0,0.2)");
-	$(nextBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="fa fa-angle-right fa-5x"></i></p>');
+	$(nextBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="pe-7s-angle-right"></i></p>');
 	//$(nextBtn).css('visibility','hidden');
 	//$(nextBtn).css("pointer-events",'fill');
 	//painel.appendChild(nextBtn);
@@ -1870,7 +1870,7 @@ function createPainel(){
 	//$(previousBtn).css("font-size",11);
 	//$(previousBtn).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
 	//$(previousBtn).css("color","rgba(0,0,0,0.2)");
-	$(previousBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="fa fa-angle-left fa-5x"></i></p>');
+	$(previousBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="pe-7s-angle-left"></i></p>');
 	//$(previousBtn).css('visibility','hidden');
 	//$(previousBtn).css("pointer-events",'fill');
 	//painel.appendChild(previousBtn);
