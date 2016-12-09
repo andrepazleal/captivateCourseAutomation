@@ -3,6 +3,22 @@
 body{
   font-family: 'KnowledgeRegular'!important;
 }
+
+div#nomeTopicoContainer {
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    width: 22%;
+    height: 29%;
+    top: 18%;
+    left: 50%;
+    background-color: #ea5050;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #infoTopico{
      height: 3px;
      width: 100%;
@@ -767,7 +783,19 @@ hr{
 }
 
 #iniciaElement{
-   background-color:white;opacity:0;height:30%;width:22%;top:48%;left:73%;position:absolute;
+   color: white;
+   /* opacity:0; */
+   font-size: 24px;
+   text-align: center;
+   height: 60%;
+   display: flex;
+   justify-content: center;
+   width:22%;
+   align-items: center;
+   background-color: #78bdcb;
+   top: 18%;
+   left: 72%;
+   position:absolute;
 }
 #logoCompanyContainer{
   position: absolute;
@@ -797,7 +825,12 @@ div[id*="Image"]{
   position:absolute;z-index:2;
 }
 .topicoNormalLogoCourse{
-  width:45% !important; height:59.5% !important;transform:translate3d(10%,30.2%,0);opacity:1;animation: fadeinMoveIn 1.5s;
+  width: 46% !important;
+  height:59.5% !important;
+  transform:translate3d(10%,30.2%,0);
+  opacity:1;
+  animation: fadeinMoveIn 1.5s;
+  background-color: #666666;
 }
 .topicoNormalLogoCourseFinal{
   width:45% !important; height:59.5% !important;transform:translate3d(10%,30.2%,0);opacity:1;animation: fadeinMoveIn 1s;
