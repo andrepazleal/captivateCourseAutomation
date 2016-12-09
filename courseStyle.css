@@ -707,7 +707,8 @@ input[type="range"]::-webkit-slider-thumb:active {
   /* padding: 15px; */
   pointer-events:none;
 }
-#nextBtn, #previousBtn{/* height:50px!important; *//* width:78px!important; */top: 10em;/* right: 5%; */font-size: xx-large;/* display:table; */pointer-events:fill;position: absolute;-webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);z-index:2;}
+#nextBtn, #previousBtn{color:white;top: 10em;font-size: xx-large;pointer-events:fill;position: absolute;-webkit-user-select:none;text-shadow:1px 1px 12px rgba(0,0,0,.5);z-index:2;}
+
 #painelTextoSlide{
   overflow-y:auto;font-weight: lighter;pointer-events:auto;line-height:1.1;-webkit-overflow-scrolling: touch;
 }
