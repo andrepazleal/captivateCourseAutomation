@@ -1850,7 +1850,7 @@ function createPainel(){
 	//$(nextBtn).css("font-size",11);
 	//$(nextBtn).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
 	//$(nextBtn).css("color","rgba(0,0,0,0.2)");
-	$(nextBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="fa fa-angle-right fa-5x"></i></p>');
+	//$(nextBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="fa fa-angle-right fa-5x"></i></p>');
 	//$(nextBtn).css('visibility','hidden');
 	//$(nextBtn).css("pointer-events",'fill');
 	//painel.appendChild(nextBtn);
@@ -1869,7 +1869,7 @@ function createPainel(){
 	//$(previousBtn).css("font-size",11);
 	//$(previousBtn).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
 	//$(previousBtn).css("color","rgba(0,0,0,0.2)");
-	$(previousBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="fa fa-angle-left fa-5x"></i></p>');
+	//$(previousBtn).html('<p style="display:table-cell;vertical-align:middle;text-align:center;"><i class="fa fa-angle-left fa-5x"></i></p>');
 	//$(previousBtn).css('visibility','hidden');
 	//$(previousBtn).css("pointer-events",'fill');
 	//painel.appendChild(previousBtn);
