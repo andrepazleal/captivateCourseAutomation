@@ -139,7 +139,7 @@ function scriptVersion(){
 
 	$(scriptVersion).html('<div style="color:white; margin-top:-9vh;margin-left:-12vw;-webkit-transform:rotate(45deg);vertical-align:top;text-align:center;pointer-events:none;"><i class="fa fa-star"></i></div>');
 }
-scriptVersion();
+//scriptVersion();
 
 function carregandoTela(){
 	var carregandoTela = document.getElementById("loading");	
