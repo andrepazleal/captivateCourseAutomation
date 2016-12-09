@@ -673,11 +673,15 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 .painelLateralNext{
   right:0;
-//transform:translate3d(52em,38.5em,0)
+//
+  transform:translate3d(52em,38.5em,0);
+  background-image: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/arrowRight.svg');
 }
 .painelLateralPrevious{
   left:0;
-//transform:translate3d(0,620px,0)
+//
+  transform:translate3d(0,620px,0);
+  background-image: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/arrowLeft.svg');
 }
 .painelLateralNext800{
 //transform:translate3d(40em,29em,0)
