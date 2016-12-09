@@ -587,11 +587,10 @@ function messageCentralize(){
 }
 
 function introVideos(){
-	if(document.documentElement.clientWidth < 700 && cpInfoCurrentSlideLabel !="Fim!"){
-		createElements();
-		chooseTopicAndContinue();
-	}
-	else{
+	
+		
+	
+	/*else{
 		if(cpInfoCurrentSlideLabel == "Seja Bem Vindo!")
 		{
 			introType = 'intro.mp4';
@@ -651,13 +650,17 @@ function introVideos(){
 				chooseTopicAndContinue();
 			});
 		}
-	}
+	}*/
 
 	if(cpInfoCurrentSlideLabel == "Fim!")
 	{
 		createElements();
 		fimIntro();
 	}	
+	else{
+		createElements();
+		chooseTopicAndContinue();
+	}
 }
 introVideos();
 
