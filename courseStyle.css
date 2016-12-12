@@ -10,7 +10,7 @@ div#nomeTopicoContainer {
     z-index: 2;
     width: 22%;
     height: 29%;
-    top: 18%;
+    top: 17.6%!important;
     left: 50%;
     background-color: #ea5050;
     font-size: 24px;
