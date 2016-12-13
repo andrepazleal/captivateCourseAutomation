@@ -1941,7 +1941,7 @@ function createSidePainel(){
 	$(showSidePainel).bind(changeClick,function(e){
 	//$(showSidePainel).bind("click", function(){
 		//showSidePainel.className="blurOut";
-		$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
+		//$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
 		//TweenLite.to(showSidePainel,.3,{opacity:0});
 		//$(sidePainel).css('opacity',0);	
 		//$(emailBtn).css('opacity',0);	
@@ -2096,6 +2096,7 @@ function createSidePainel(){
 	}
 	else{
 		$(infoTopico).append('<br><div style="width:100%;"><input type="range" min="1" max="'+(cpInfoSlideCount-2)+'" onchange="cpCmndGotoSlideAndResume=this.value" onKeyPress="" required="" autocomplete="off" placeholder="Digite a tela"></div>');
+		$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
 	}
 	var language = document.createElement("div");
 	language.setAttribute("id", "language");
