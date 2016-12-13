@@ -878,7 +878,7 @@ function chooseTopicAndContinue(){
 	//$(iniciaElement).css('display',"inline");
 	//$(iniciaElement).css('z-index',100);
 	//changed the opacity to low value and set color for IE and Chrome in Android Tablets.
-	$(iniciaElement).html('<p style="display:table-cell;vertical-align:middle;text-align:center;">CLIQUE AQUI PARA INICIAR</p>');
+	$(iniciaElement).html('<p style="display:table-cell;vertical-align:middle;text-align:center;">Iniciar o tópico</p>');
 	
 	try{
 		//TweenLite.to(nomeTopicoNovidade, 1, {opacity:1});		
