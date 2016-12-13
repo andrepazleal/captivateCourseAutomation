@@ -821,7 +821,12 @@ div[id*="Image"]{
   /*pointer-events:none;*/
 }
 #logoCourse{
-  position:absolute;z-index:2;
+  position:absolute;
+  z-index:2;
+  background-position: center;
+  background-size: contain;
+  background-image: url("https://gitcdn.link/repo/andrepazleal/captivateCourseAutomation/Teste/logos/simplesVeiculo.svg");
+  background-repeat: no-repeat;
 }
 .topicoNormalLogoCourse{
   width: 45% !important;
