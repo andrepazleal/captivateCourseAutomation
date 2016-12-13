@@ -793,7 +793,7 @@ hr{
    align-items: center;
    background-color: #78bdcb;
    top: 47%;
-   left: 72.5%;
+   left: 27%;
    position:absolute;
 }
 #logoCompanyContainer{
@@ -831,7 +831,7 @@ div[id*="Image"]{
 .topicoNormalLogoCourse{
   width: 45% !important;
   height: 58.5% !important;
-  transform:translate3d(10%,30.2%,0);
+  transform: translate3d(110%,30.2%,0);
   opacity:1;
   animation: fadeinMoveIn 1.5s;
   background-color: #666666;
