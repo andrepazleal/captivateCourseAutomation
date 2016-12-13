@@ -464,17 +464,17 @@ function createElements(){
 	nomeTopicoContainer.setAttribute("id", "nomeTopicoContainer");
 	document.getElementById("div_Slide").appendChild(nomeTopicoContainer);
 	nomeTopicoContainer.appendChild(nomeTopicoText);
-	//nomeTopicoContainer.setAttribute("style", "position:absolute;");
-	//$(nomeTopicoContainer).css("opacity", 0);
-	//$(nomeTopicoContainer).css("z-index", 2);
-	//$(nomeTopicoContainer).css("width", '22%');
-	//$(nomeTopicoContainer).css("height", '29%');
-	//$(nomeTopicoContainer).css('top','18%');
-	//$(nomeTopicoContainer).css('left','50%');
-	//$(nomeTopicoContainer).css('font-size',24);
+	nomeTopicoContainer.setAttribute("style", "position:absolute;");
+	$(nomeTopicoContainer).css("opacity", 0);
+	$(nomeTopicoContainer).css("z-index", 2);
+	$(nomeTopicoContainer).css("width", '22%');
+	$(nomeTopicoContainer).css("height", '29%');
+	$(nomeTopicoContainer).css('top','18%');
+	$(nomeTopicoContainer).css('left','50%');
+	$(nomeTopicoContainer).css('font-size',24);
 	//$(nomeTopicoContainer).css('font-family',"Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
-	//$(nomeTopicoContainer).css('color',"#ffffff");
-	//$(nomeTopicoContainer).css('display',"table");
+	$(nomeTopicoContainer).css('color',"#ffffff");
+	$(nomeTopicoContainer).css('display',"table");
 
 	var topicoNovidade = cpInfoCurrentSlideLabel.indexOf("(Novo)") != -1;
 	if(topicoNovidade == true){
@@ -878,7 +878,7 @@ function chooseTopicAndContinue(){
 	//$(iniciaElement).css('display',"inline");
 	//$(iniciaElement).css('z-index',100);
 	//changed the opacity to low value and set color for IE and Chrome in Android Tablets.
-	$(iniciaElement).html('<p style="display:table-cell;vertical-align:middle;text-align:center;">Inicie o tópico aqui</p>');
+	$(iniciaElement).html('<p style="display:table-cell;vertical-align:middle;text-align:center;">CLIQUE AQUI PARA INICIAR</p>');
 	
 	try{
 		//TweenLite.to(nomeTopicoNovidade, 1, {opacity:1});		
@@ -1941,7 +1941,7 @@ function createSidePainel(){
 	$(showSidePainel).bind(changeClick,function(e){
 	//$(showSidePainel).bind("click", function(){
 		//showSidePainel.className="blurOut";
-		//$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
+		$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
 		//TweenLite.to(showSidePainel,.3,{opacity:0});
 		//$(sidePainel).css('opacity',0);	
 		//$(emailBtn).css('opacity',0);	
@@ -2096,7 +2096,6 @@ function createSidePainel(){
 	}
 	else{
 		$(infoTopico).append('<br><div style="width:100%;"><input type="range" min="1" max="'+(cpInfoSlideCount-2)+'" onchange="cpCmndGotoSlideAndResume=this.value" onKeyPress="" required="" autocomplete="off" placeholder="Digite a tela"></div>');
-		$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
 	}
 	var language = document.createElement("div");
 	language.setAttribute("id", "language");
