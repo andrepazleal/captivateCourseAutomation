@@ -431,7 +431,7 @@ function createElements(){
 	//$(logoCompanyContainer).css('background-position','50% 0');
 	//$(logoCompanyContainer).css('background-size','35%');
 
-	var logoCourse = document.createElement("img");
+	var logoCourse = document.createElement("div");
 	logoCourse.setAttribute("id", "logoCourse");
 	document.getElementById("project_main").appendChild(logoCourse);
 	courseName();
