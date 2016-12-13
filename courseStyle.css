@@ -803,7 +803,7 @@ hr{
   top:88%;
   opacity: 0;
   display: block;
-  background-size:30%!important;
+  background-size:inherit;
   background-position: 50% 0 !important;
   pointer-events:none;
   webkit-transition: opacity .5s ease-out;
