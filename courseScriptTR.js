@@ -464,7 +464,7 @@ function createElements(){
 	nomeTopicoContainer.setAttribute("id", "nomeTopicoContainer");
 	document.getElementById("div_Slide").appendChild(nomeTopicoContainer);
 	nomeTopicoContainer.appendChild(nomeTopicoText);
-	nomeTopicoContainer.setAttribute("style", "position:absolute;");
+	/*nomeTopicoContainer.setAttribute("style", "position:absolute;");
 	$(nomeTopicoContainer).css("opacity", 0);
 	$(nomeTopicoContainer).css("z-index", 2);
 	$(nomeTopicoContainer).css("width", '22%');
@@ -474,7 +474,7 @@ function createElements(){
 	$(nomeTopicoContainer).css('font-size',24);
 	//$(nomeTopicoContainer).css('font-family',"Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
 	$(nomeTopicoContainer).css('color',"#ffffff");
-	$(nomeTopicoContainer).css('display',"table");
+	$(nomeTopicoContainer).css('display',"table");*/
 
 	var topicoNovidade = cpInfoCurrentSlideLabel.indexOf("(Novo)") != -1;
 	if(topicoNovidade == true){
