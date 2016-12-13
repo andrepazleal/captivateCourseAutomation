@@ -176,7 +176,7 @@ function companyName(){
 	}
 	if(companyName[0] == 'Simples')
 	{
-		companyName = 'https://gitcdn.link/repo/andrepazleal/captivateCourseAutomation/Teste/logos/simplesVeiculo.svg';
+		companyName = 'https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/logos/simplesVeiculo.svg';
 	}
 }
 
