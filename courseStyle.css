@@ -24,7 +24,7 @@ div#nomeTopicoContainer {
      width: 100%;
      visibility: hidden;
      /* top: 60%; */
-     bottom: 5px;
+     bottom: 0px;
      position: absolute;
      z-index: 2;
      /* left: 0px; */
@@ -644,33 +644,33 @@ li:nth-child(16){
   background-color:#666666;transform: translateY(8em) translateX(5em);-webkit-transition: all 0.3s ease-out;transition: all 0.3s ease-out;height:10em;
 }
 
+
 input[type="range"] {
     -webkit-appearance: none !important;
     width: 100%;
-    height: 3px;
+    /* height: 3px; */
     background-color: #ea5050;
-    border: 1px solid #ea5050;
-    border-radius: 10px;
+    /* border: 1px solid #ea5050; */
+    /* border-radius: 10px; */
     margin: auto;
     transition: all 0.3s ease;
 }
+
 input[type="range"]:hover {
-  
+  background-color:transparent;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
-  width: 30px;
-  height: 30px;
+  width: 10px;
+  height: 10px;
   background-color: #FFFFFF;
-  border-radius: 30px;
-  border-color:#FFFFFF;
-  border-width: 3px;
-  transition: all 0.5s ease;
+  border-radius:100%;
+  transition: all 0.2s ease;
 }
 input[type="range"]::-webkit-slider-thumb:hover {
   background-color: #ea5050;
- width: 40px;
-  height: 40px;
+ width: 30px;
+  height: 30px;
 }
 input[type="range"]::-webkit-slider-thumb:active {
   box-shadow: 0px 0px 1px #ea5050;
