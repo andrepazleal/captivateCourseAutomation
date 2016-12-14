@@ -24,7 +24,7 @@ div#nomeTopicoContainer {
      width: 100%;
      visibility: hidden;
      /* top: 60%; */
-     bottom: 0;
+     bottom: 5px;
      position: absolute;
      z-index: 2;
      /* left: 0px; */
