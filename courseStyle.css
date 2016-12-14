@@ -20,7 +20,7 @@ div#nomeTopicoContainer {
     align-items: center;
 }
 #infoTopico{
-     height: 3px;
+     height: 10px;
      width: 100%;
      visibility: hidden;
      /* top: 60%; */
@@ -655,7 +655,7 @@ input[type="range"] {
     transition: all 0.3s ease;
 }
 input[type="range"]:hover {
-  background-color: #FFFFFF;
+  
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
@@ -669,6 +669,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 input[type="range"]::-webkit-slider-thumb:hover {
   background-color: #ea5050;
+ width: 40px;
+  height: 40px;
 }
 input[type="range"]::-webkit-slider-thumb:active {
   box-shadow: 0px 0px 1px #ea5050;
