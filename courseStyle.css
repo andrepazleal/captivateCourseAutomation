@@ -278,8 +278,10 @@ blockquote{
 
 
 div[id*="re-Click"],div[id*="re-Highlight"]{
-    border: 3px solid #ea5050;
-    background-color: rgba(234, 80, 80,.5);
+ border: 3px solid #ea5050;
+ background-color: rgba(234, 80, 80,.5);
+ margin:-3px;
+ border-radius:5px;
 }
 
 div[id*="Video"], div[id*="re-Video"], div[class*="cp-eventVideo"], video{
