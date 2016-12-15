@@ -37,13 +37,18 @@ div#nomeTopicoContainer {
      align-items: center;
      flex-wrap: wrap;
 }
+
 #infoTopicoText{
-     font-size: 10px;
-    /* display: table-cell; */
-    height: 0px;
-    text-align: center;
-    vertical-align: middle;
-    pointer-events: none;
+     font-size: 20px;
+     font-weight: lighter;
+     display: table-cell;
+     position: absolute;
+     bottom: 0;
+     left: 10px;
+     text-align: center;
+     z-index: 1000;
+     vertical-align: middle;
+     pointer-events: none;
 }
 
 
