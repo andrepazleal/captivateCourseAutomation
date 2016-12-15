@@ -1941,7 +1941,7 @@ function createSidePainel(){
 	$(showSidePainel).bind(changeClick,function(e){
 	//$(showSidePainel).bind("click", function(){
 		//showSidePainel.className="blurOut";
-		$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
+		
 		//TweenLite.to(showSidePainel,.3,{opacity:0});
 		//$(sidePainel).css('opacity',0);	
 		//$(emailBtn).css('opacity',0);	
@@ -2080,7 +2080,8 @@ function createSidePainel(){
 	//$(infoTopico).css("display","table");
 	//(sidePainel).appendChild(infoTopico)*/
 	project.parentNode.insertBefore(infoTopico, project.nextSibling);
-
+	$(infoTopico).append('<br><div style="width:100%;"><input type="range" min="1" max="'+(cpInfoSlideCount-2)+'" onchange="cpCmndGotoSlideAndResume=this.value" onKeyPress="" required="" autocomplete="off" placeholder="Digite a tela"></div>');
+	
 	var infoTopicoText = document.createElement("p");
 	infoTopicoText.setAttribute("id", "infoTopicoText");
 	//$(infoTopicoText).css("font-size",11);
@@ -2088,15 +2089,15 @@ function createSidePainel(){
 	//$(infoTopicoText).css('display',"table-cell");
 	//$(infoTopicoText).css('text-align',"center");
 	//$(infoTopicoText).css('vertical-align',"middle");
-	(infoTopico).appendChild(infoTopicoText)
+	//(infoTopico).appendChild(infoTopicoText)
 	//$(infoTopicoText).css('pointer-events','none');
 	//added
-	if(window.location.host=='dominiosistemas.webaula.com.br' || window.location.host=='moodle.dominiosistemas.com.br'){
-		
-	}
-	else{
-		$(infoTopico).append('<br><div style="width:100%;"><input type="range" min="1" max="'+(cpInfoSlideCount-2)+'" onchange="cpCmndGotoSlideAndResume=this.value" onKeyPress="" required="" autocomplete="off" placeholder="Digite a tela"></div>');
-	}
+	painel.parentNode.insertBefore(infoTopicoText, painel.nextSibling);
+	
+	//if(window.location.host=='dominiosistemas.webaula.com.br' || window.location.host=='moodle.dominiosistemas.com.br'){
+	//}
+	//else{
+	//}
 	var language = document.createElement("div");
 	language.setAttribute("id", "language");
 	$(language).css("id",'language');
@@ -2966,7 +2967,8 @@ function updateSlideElements(){
 	successMessage();
 	topicType();
 	//topicLanguage();
-	changeToDeviceFont();
+	//changeToDeviceFont();
+	$(infoTopicoText).html("TELA "+cpInfoCurrentSlide+" DE "+cpInfoSlideCount);
 	//console.log(cpInfoCurrentSlide,cpInfoSlideCount)
 	if(cpInfoCurrentSlide == cpInfoSlideCount)			
 	{
