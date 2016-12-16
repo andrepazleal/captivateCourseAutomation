@@ -1845,7 +1845,7 @@ function createPainel(){
 	
 	var nextBtn = document.createElement("div")
 	nextBtn.setAttribute("id", "nextBtn");
-	nextBtn.setAttribute("style", "z-index:100");
+	//nextBtn.setAttribute("style", "z-index:100");
 	//$(nextBtn).css("height",50);
 	//$(nextBtn).css("width",50);
 	//$(nextBtn).css("display","table");
