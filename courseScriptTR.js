@@ -1858,7 +1858,7 @@ function createPainel(){
 	//$(nextBtn).css('visibility','hidden');
 	//$(nextBtn).css("pointer-events",'fill');
 	//painel.appendChild(nextBtn);
-	infoTopico.parentNode.insertBefore(nextBtn, infoTopico.nextSibling);
+	div_Slide.parentNode.insertBefore(nextBtn, div_Slide.nextSibling);
 	$(nextBtn).bind(changeClick,function(e){
 		checkInteractionNext();
 	});
@@ -1877,7 +1877,7 @@ function createPainel(){
 	//$(previousBtn).css('visibility','hidden');
 	//$(previousBtn).css("pointer-events",'fill');
 	//painel.appendChild(previousBtn);
-	infoTopico.parentNode.insertBefore(previousBtn, infoTopico.nextSibling);
+	div_Slide.parentNode.insertBefore(previousBtn, div_Slide.nextSibling);
 	$(previousBtn).bind(changeClick,function(e){
 		checkInteractionPrevious();
 	})
