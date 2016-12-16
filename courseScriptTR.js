@@ -2419,8 +2419,8 @@ function changeColors(){
 		$('p').css('color', 'rgba(255, 255, 255, 1)');
 		painelTitleSlide.className+=" changeColorsClear";
 		painelTextoSlide.className="changeColorsClear";
-		nextBtn.className+=" changeColorsClear";
-		previousBtn.className+=" changeColorsClear";
+		//nextBtn.className+=" changeColorsClear";
+		//previousBtn.className+=" changeColorsClear";
 		//$("nextBtn, i").css('color', 'rgba(255, 255, 255, 1)');
 	}
 	else{
@@ -2428,8 +2428,8 @@ function changeColors(){
 		//$('h1').css('color', '#7d7d7d');
 		painelTitleSlide.className+=" changeColorsDark";
 		painelTextoSlide.className="changeColorsDark";
-		nextBtn.className+=" changeColorsDark";
-		previousBtn.className+=" changeColorsDark";
+		//nextBtn.className+=" changeColorsDark";
+		//previousBtn.className+=" changeColorsDark";
 		//nextBtn.className="changeColorsDark";
 		//previousBtn.className="changeColorsDark";
 		$(logoCompanyContainer).css('-webkit-filter',"brightness(1) grayscale(0)");	
