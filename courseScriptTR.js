@@ -530,36 +530,36 @@ function createElements(){
 	var messageFinalElement = document.createElement("div");	
 	messageFinalElement.setAttribute("id", "messageFinalElement");
 	document.getElementById("project_main").appendChild(messageFinalElement);
-	//messageFinalElement.setAttribute("style", "position:absolute;");
-	//$(messageFinalElement).css('width','100%');
-	//$(messageFinalElement).css('height','100%');
-	//$(messageFinalElement).css('top','0');
-	//$(messageFinalElement).css("background-color",'rgba(86, 86, 86, 0.9)')
+	messageFinalElement.setAttribute("style", "position:absolute;");
+	$(messageFinalElement).css('width','100%');
+	$(messageFinalElement).css('height','100%');
+	$(messageFinalElement).css('top','0');
+	$(messageFinalElement).css("background-color",'rgba(86, 86, 86, 0.9)')
 	$(messageFinalElement).css("visibility",'hidden')
 	$(messageFinalElement).css("display",'none')
 
 	var messageFinalElementText = document.createElement("p");
 	messageFinalElementText.setAttribute("id", "messageFinalElementText");
 	messageFinalElement.appendChild(messageFinalElementText);
-	//$(messageFinalElementText).css("font-size", '125%');
-	//$(messageFinalElementText).css('margin-top',"25vh");
+	$(messageFinalElementText).css("font-size", '125%');
+	$(messageFinalElementText).css('margin-top',"25vh");
 	//$(messageFinalElementText).css('font-family',"Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
-	//$(messageFinalElementText).css('color',"#ffffff");
-	//$(messageFinalElementText).css('text-align',"center");
+	$(messageFinalElementText).css('color',"#ffffff");
+	$(messageFinalElementText).css('text-align',"center");
 
-	//var messageFinalElementIcon = document.createElement("div")
-	//messageFinalElementIcon.setAttribute("id", "messageFinalElementIcon");
-	//$(messageFinalElement).append(messageFinalElementIcon)
-	//messageFinalElementIcon.setAttribute("style", "position:absolute; z-index:100");
-	//$(messageFinalElementIcon).css("height",100);
-	//$(messageFinalElementIcon).css("width",100);
-	//$(messageFinalElementIcon).css("padding","25px");
-	//$(messageFinalElementIcon).css("display","table");
-	//$(messageFinalElementIcon).css('top','55%');
-	//$(messageFinalElementIcon).css("font-size",16);
+	var messageFinalElementIcon = document.createElement("div")
+	messageFinalElementIcon.setAttribute("id", "messageFinalElementIcon");
+	$(messageFinalElement).append(messageFinalElementIcon)
+	messageFinalElementIcon.setAttribute("style", "position:absolute; z-index:100");
+	$(messageFinalElementIcon).css("height",100);
+	$(messageFinalElementIcon).css("width",100);
+	$(messageFinalElementIcon).css("padding","25px");
+	$(messageFinalElementIcon).css("display","table");
+	$(messageFinalElementIcon).css('top','55%');
+	$(messageFinalElementIcon).css("font-size",16);
 	//$(messageFinalElementIcon).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
-	//$(messageFinalElementIcon).css("color","#ffffff");
-	//$(messageFinalElementIcon).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-angle-left fa-3x"></i></p>');
+	$(messageFinalElementIcon).css("color","#ffffff");
+	$(messageFinalElementIcon).html('<p style="display:table-cell;vertical-align:middle;text-align:center;pointer-events:none;"><i class="fa fa-angle-left fa-3x"></i></p>');
 }	
 
 
