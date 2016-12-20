@@ -1571,7 +1571,7 @@ color:white!important;
       /*-webkit-transition: all 0.3s ease-out;      transition: all 0.3s ease-out;*/
       z-index:200!important;  }  
        .painelLateralNext{
-      //transform:translate3d(52em,38.5em,0);
+      transform: translate(50vw,0px)!important;
        }  .painelLateralPrevious{
       transform:translate3d(0,620px,0);}  .painelLateralNext800{
       transform:translate3d(40em,29em,0);}  .painelLateralPrevious800{
