@@ -2266,7 +2266,7 @@ function nextSlide(){
 	{
 		$(messageFinalElement).css("display", 'block');	
 		$(messageFinalElement).css("visibility", 'visible');
-		$(messageFinalElementText).css("margin-top", '36%');
+		//$(messageFinalElementText).css("margin-top", '36%');
 		
 		//$(messageFinalElementIcon).css('display',"none");
 
