@@ -535,7 +535,7 @@ function createElements(){
 	//$(messageFinalElement).css('height','100%');
 	//$(messageFinalElement).css('top','0');
 	//$(messageFinalElement).css("background-color",'rgba(86, 86, 86, 0.9)')
-	////$(messageFinalElement).css("visibility",'hidden')
+	$(messageFinalElement).css("visibility",'hidden')
 	$(messageFinalElement).css("display",'none')
 
 	var messageFinalElementText = document.createElement("p");
