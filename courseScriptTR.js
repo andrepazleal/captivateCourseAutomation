@@ -687,7 +687,7 @@ function fimIntro(){
 	//TweenLite.to(messageFinalElement, 1, {opacity:1,onComplete:function(){
 	//	TweenLite.to(messageFinalElementText, 1, {opacity:1});	
 	//}});	
-	$(messageFinalElementIcon).css('display','none');
+	//$(messageFinalElementIcon).css('display','none');
 	$(logoCompanyContainer).css('display','block');
 	$(logoCompanyContainer).css('z-Index',5000);
 	//TweenLite.to(logoCompanyContainer, .5, {opacity:1});	
@@ -839,7 +839,7 @@ function messageRefresh(){
 	$(messageFinalElement).css('display',"block");
 	$(messageFinalElement).css('visibility',"visible");
 	$(messageFinalElement).css('opacity',0);
-	$(messageFinalElementIcon).css('opacity',0);
+	//$(messageFinalElementIcon).css('opacity',0);
 	TweenLite.to(messageFinalElement,1,{opacity:.9});
 	$(logoCompanyContainer).css('display','block');
 	//TweenLite.to(logoCompanyContainer,.3,{opacity:1});
@@ -1633,7 +1633,7 @@ function fvm(){
 			$(fvmMessageFinal).css('margin-bottom',"auto");
 			$(fvmMessageFinal).animate({opacity:1},1000);
 			
-			$(messageFinalElementIcon).css('display',"none");
+			//$(messageFinalElementIcon).css('display',"none");
 
 
 			$(messageFinalElement).css('visibility',"visible");
@@ -2268,7 +2268,7 @@ function nextSlide(){
 		$(messageFinalElement).css("visibility", 'visible');
 		$(messageFinalElementText).css("margin-top", '36%');
 		
-		$(messageFinalElementIcon).css('display',"none");
+		//$(messageFinalElementIcon).css('display',"none");
 
 		//remove message if the content is testing offline.
 		if (typeof window.GetStudentName!='undefined'){
@@ -2981,7 +2981,7 @@ function updateSlideElements(){
 		{
 			$(character).css('z-index',98);
 		}
-		$(messageFinalElementIcon).css('display',"none");
+		//$(messageFinalElementIcon).css('display',"none");
 		$(messageFinalElementText).html('<i class="fa fa-angle-left fa-rotate-45 fa-4x"></i><br>'+msgFinalTopico);
 		$(messageFinalElementText).css("margin-top", '25%');
 		$(messageFinalElement).css('visibility',"visible");
