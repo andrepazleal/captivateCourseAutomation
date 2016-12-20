@@ -11,6 +11,7 @@ div#nomeTopicoContainer {
     width: 85%;
     height: 38.5%;
     top: 17.6%!important;
+    animation: fadeinMoveIn 2s;
     /* left: 5%; */
     /* background-color: #ea5050; */
     font-size: 50px;
@@ -791,6 +792,7 @@ hr{
    color: white;
    /* opacity:0; */
    font-size: 24px;
+   animation: fadeinMoveIn 2s;
    text-align: center;
    height: 29%;
    display: flex;
