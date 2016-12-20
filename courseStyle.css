@@ -718,7 +718,7 @@ input[type="range"]::-webkit-slider-thumb:hover, input[type="range"]::-webkit-sl
   color:white;
 }
 .painelNormalPrevious{left: 0;z-index:2;url('https: //cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/arrowRight.svg');background-image: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/arrowLeft.svg');}
-.painelNormalNext{right: 0;background-image: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/arrowRight.svg');}
+.painelNormalNext{transform: translate(80vw,0px)!important;background-image: url('https://cdn.rawgit.com/andrepazleal/captivateCourseAutomation/Teste/images/arrowRight.svg');}
 .painelNormalTextoSlide{
   width:91%!important;max-width:100%!important;height:auto!important;
 }
@@ -953,8 +953,8 @@ color:white!important;
      div[class*="cp-shape"],[width*="1024"],[height*="768"]{
         /*opacity:.5;*/
       }
-        #nextBtn{
-          /* transform:translate3d(77vw,82vh,0) */
+         #nextBtn{
+          transform: translate(50vw,0px)!important;
         }
         #previousBtn{
           /* transform:translate3d(1vw,82vh,0) */
