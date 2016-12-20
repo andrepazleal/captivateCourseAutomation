@@ -2983,7 +2983,7 @@ function updateSlideElements(){
 		}
 		//$(messageFinalElementIcon).css('display',"none");
 		$(messageFinalElementText).html('<i class="fa fa-angle-left fa-rotate-45 fa-4x"></i><br>'+msgFinalTopico);
-		$(messageFinalElementText).css("margin-top", '25%');
+		//$(messageFinalElementText).css("margin-top", '25%');
 		$(messageFinalElement).css('visibility',"visible");
 		$(messageFinalElement).css("display",'block')
 		$(messageFinalElement).css("opacity",0);
