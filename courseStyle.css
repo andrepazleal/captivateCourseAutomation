@@ -8,13 +8,14 @@ div#nomeTopicoContainer {
     position: absolute;
     opacity: 0;
     z-index: 2;
-    width: 22%;
-    height: 29%;
+    width: 85%;
+    height: 38.5%;
     top: 17.6%!important;
-    left: 5%;
-    background-color: #ea5050;
-    font-size: 24px;
-    color: rgb(255, 255, 255);
+    /* left: 5%; */
+    /* background-color: #ea5050; */
+    font-size: 50px;
+    transform: translate3d(10%,30.2%,0);
+    color: #777;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -794,11 +795,12 @@ hr{
    height: 29%;
    display: flex;
    justify-content: center;
-   width:22%;
+   width: 85%;
    align-items: center;
+   transform: translate3d(10%,201.2%,0);
    background-color: #78bdcb;
-   top: 47%;
-   left: 27%;
+   /* top: 47%; */
+   /* left: 27%; */
    position:absolute;
 }
 #logoCompanyContainer{
@@ -834,9 +836,9 @@ div[id*="Image"]{
   background-repeat: no-repeat;
 }
 .topicoNormalLogoCourse{
-  width: 45% !important;
-  height: 58.5% !important;
-  transform: translate3d(110%,30.2%,0);
+  width: 85% !important;
+  height: 28.5% !important;
+  transform: translate3d(10%,30.2%,0);
   opacity:1;
   animation: fadeinMoveIn 1.5s;
   background-color: #ececec;
@@ -879,7 +881,7 @@ div[id*="Image"]{
 }
 
   #showSidePainel{
-    visibility: visible;
+    visibility: hidden!important;
     z-index: 100;
     opacity: 1;
     position: absolute;
@@ -1064,6 +1066,14 @@ color:white!important;
       #sidePainel,#emailBtn,#soundBtn,#painelBtn,#infoTopico,#language{
         width: 100vw;
       }
+  #infoTopico{
+       top: 0;
+     }
+ #infoTopicoText{
+        width: 100vw;
+        left: 0;
+        font-size: small;
+     }
       #logoCompanyContainer{
       position: absolute; height: 15vh !important; width: 100vw !important; top: 85vh !important; opacity: 1; display: block; -webkit-filter: brightness(2.3) grayscale(1); background-image: url(../imagesTR/logoThomson.png) !important; background-size: 10vh !important; background-position: 42.5vw 0 !important;pointer-events:none;webkit-transition: opacity .5s ease-out; transition: opacity .5s ease-out;
       }
