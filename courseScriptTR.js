@@ -2093,7 +2093,7 @@ function createSidePainel(){
 	//(infoTopico).appendChild(infoTopicoText)
 	//$(infoTopicoText).css('pointer-events','none');
 	//added
-	project.parentNode.insertBefore(infoTopicoText, project.nextSibling);
+	painelTextoSlide.parentNode.insertBefore(infoTopicoText, painelTextoSlide.nextSibling);
 	
 	//if(window.location.host=='dominiosistemas.webaula.com.br' || window.location.host=='moodle.dominiosistemas.com.br'){
 	//}
