@@ -1,7 +1,7 @@
  /*PRODUCTION CSS FOR COURSES*/
-@import url(https://assets.gcs.thomsonreuters.com/fonts?variants=regular|bold);
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 body{
-  font-family: 'KnowledgeRegular'!important;
+  font-family: 'Roboto'!important;
 }
 p#messageFinalElementText {
     width: 100%;
