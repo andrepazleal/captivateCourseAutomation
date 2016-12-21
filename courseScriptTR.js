@@ -1821,6 +1821,10 @@ function createPainel(){
 	painelTextoSlide.setAttribute("id", "painelTextoSlide");
 	//painelTextoSlide.setAttribute("style", "pointer-events:none");
 	$(painel).append(painelTextoSlide);
+	
+	var infoTopicoText = document.createElement("p");
+	infoTopicoText.setAttribute("id", "infoTopicoText");
+	painelTextoSlide.parentNode.insertBefore(infoTopicoText, painelTextoSlide.nextSibling);
 
 
 	try{
@@ -2083,17 +2087,7 @@ function createSidePainel(){
 	project.parentNode.insertBefore(infoTopico, project.nextSibling);
 	$(infoTopico).append('<br><div style="width:100%;"><input type="range" min="1" max="'+(cpInfoSlideCount-2)+'" onchange="cpCmndGotoSlideAndResume=this.value" onKeyPress="" required="" autocomplete="off" placeholder="Digite a tela"></div>');
 	
-	var infoTopicoText = document.createElement("p");
-	infoTopicoText.setAttribute("id", "infoTopicoText");
-	//$(infoTopicoText).css("font-size",11);
-	//$(infoTopicoText).css("font-family","Knowledge, Segoe UI Light, Avenir-Light, Arial, Segoe UI Light, Avenir-Light, Arial");
-	//$(infoTopicoText).css('display',"table-cell");
-	//$(infoTopicoText).css('text-align',"center");
-	//$(infoTopicoText).css('vertical-align',"middle");
-	//(infoTopico).appendChild(infoTopicoText)
-	//$(infoTopicoText).css('pointer-events','none');
-	//added
-	painelTextoSlide.parentNode.insertBefore(infoTopicoText, painelTextoSlide.nextSibling);
+
 	
 	//if(window.location.host=='dominiosistemas.webaula.com.br' || window.location.host=='moodle.dominiosistemas.com.br'){
 	//}
