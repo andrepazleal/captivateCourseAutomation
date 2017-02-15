@@ -1,6 +1,10 @@
 # Captivate Course Automation
 
-This is a WIPs, the purpose of this script is to automate the creation of a course UX inside CP, using a standard for text position (dependind the position of the image), image styles, list, tables, h1, font and all styles, the idea to present the texts to the user it is to use the accessibility panel and there only use HTML formatting texts. So that you can test the script, create a On Enter "Execute Javascript" in the beggining of the course, and paste:
+This is a WIP, the purpose of this script is to automate the creation of a course UI inside CP, using a standard for panel, navigation buttons, sound on off, text position (dependind the position of the image), image styles, list, tables, h1, font and all styles, the idea behind this is to present the texts to the user using the Slide Notes imported thru the the accessibility panel and there only use HTML formatting texts. 
+
+Here are the steps to use the script:<br>
+• Create a Slide;<br>
+• On the tab properties the submenu Actions create a On Enter "Execute Javascript" click on Script_Window button and paste:
 
     
     $('head').append('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>');
