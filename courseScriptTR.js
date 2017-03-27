@@ -9,7 +9,7 @@ var observer = new MutationObserver(function(mutations, observer) {
     //setTimeout(updateSlideElements, 100);
     updateSlideElements();
 });
-observer.observe(document.getElementById('div_Slide'), {
+observer.observe(document.getElementById('div_Slide').children[0], {
     attributes: true,
     childList:true,
     attributeFilter:['id']
@@ -1720,14 +1720,7 @@ function fvm(){
 }
 
 function finalMessage(){
-	if(pageUrl == 'moodle.dominiosistemas.com.br' || pageUrl == 'qamoodle.dominiosistemas.com.br')
-	{
-		msgFinalTopico = 'Para continuar, selecione o <br>próximo tópico no campo acima.<br><br>Dúvidas? Envie um e-mail para<br>'+cpInfoEmail+'';
-	}
-	else
-	{
-		msgFinalTopico = 'Para continuar, na barra superior,<br>clique no botão Avançar.<br><br>Dúvidas? Envie um e-mail para<br>'+cpInfoEmail+''
-	}
+	msgFinalTopico = 'Ficou com dúvidas? Nos envie um email para<br>'+cpInfoEmail+'';
 }
 
 function sejaBemVindo(){	
